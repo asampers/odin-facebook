@@ -11,9 +11,24 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
+    <nav class=navbar bg-light>
+      <div class="container-fluid">
+        <% if user_signed_in? %>
+          <h2 class="navbar-text">Welcome, <%= current_user.username %></h2>
+          <%= link_to 'Click here to logout', destroy_user_session_path, data: { turbo_method: :delete } %>
+        <% else %>  
+          <%= link_to 'Login', new_user_session_path %>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %> 
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
