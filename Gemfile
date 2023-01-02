@@ -63,6 +63,7 @@ group :development, :test do
   gem 'webdrivers'
   gem 'faker'
   gem "selenium-webdriver"
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 gem 'simplecov', require: false, group: :test
