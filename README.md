@@ -1,24 +1,6 @@
-# README
+# Social Media Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Build a social media site with the main functionality of Facebook (users, profiles, “friending”, posts, news feed, and “liking”).
 
-Things you may want to cover:
+Developed as the final project in the Ruby on Rails section of [The Odin Project]. (https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
