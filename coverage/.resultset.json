@@ -24,12 +24,36 @@
       "/home/nanarama/repos/odin-facebook/app/controllers/application_controller.rb": {
         "lines": [
           0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/controllers/posts_controller.rb": {
+        "lines": [
+          0,
           0
         ],
         "branches": {
         }
       },
       "/home/nanarama/repos/odin-facebook/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/helpers/posts_helper.rb": {
         "lines": [
           0,
           0
@@ -69,6 +93,15 @@
         "branches": {
         }
       },
+      "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/nanarama/repos/odin-facebook/app/models/user.rb": {
         "lines": [
           0,
@@ -76,12 +109,14 @@
           null,
           0,
           0,
+          null,
+          0,
           0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1672690525
+    "timestamp": 1672696401
   }
 }
