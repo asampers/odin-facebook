@@ -1,8 +1,11 @@
-<h1>Posts</h1>
+<div class="container">
+  <h1>Posts</h1>
 
   <%= link_to 'New Post', new_post_path %>
-  
-  <% @posts.each do |post| %>
-    <p> <%= post.body %> </p>
-    <p>Author: <%= post.user.username %> </p>
-  <% end %> 
+
+  <div id="posts">  
+    <% @posts.each do |post| %>
+      <%= render post %> 
+    <% end %> 
+  <div>
+</div>  
