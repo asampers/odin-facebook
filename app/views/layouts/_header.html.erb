@@ -1,0 +1,10 @@
+<nav class=navbar bg-light>
+  <div class="container-fluid">
+    <% if user_signed_in? %>
+      <h2 class="navbar-text">Welcome, <%= current_user.username %></h2>
+      <span class="nav-link"><%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false } %></span> 
+    <% else %>  
+      <a class="navbar-brand text-info fs-4 fw-bold" href="/">Friend Book</a>
+    <% end %> 
+  </div>
+</nav>
