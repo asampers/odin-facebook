@@ -10,6 +10,25 @@
           null,
           null,
           1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -41,6 +60,53 @@
           null
         ]
       },
+      "/home/nanarama/repos/odin-facebook/app/controllers/posts_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/nanarama/repos/odin-facebook/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/nanarama/repos/odin-facebook/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -53,58 +119,6 @@
       },
       "/home/nanarama/repos/odin-facebook/app/channels/application_cable/connection.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/nanarama/repos/odin-facebook/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/nanarama/repos/odin-facebook/app/controllers/posts_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
           0,
           0,
           0,
@@ -137,6 +151,6 @@
         }
       }
     },
-    "timestamp": 1672701350
+    "timestamp": 1672785293
   }
 }
