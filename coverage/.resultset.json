@@ -40,6 +40,28 @@
         "branches": {
         }
       },
+      "/home/nanarama/repos/odin-facebook/app/controllers/friendships_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/nanarama/repos/odin-facebook/app/controllers/posts_controller.rb": {
         "lines": [
           0,
@@ -87,6 +109,14 @@
         }
       },
       "/home/nanarama/repos/odin-facebook/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/helpers/friendships_helper.rb": {
         "lines": [
           0,
           0
@@ -147,6 +177,10 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
+          null,
           0
         ],
         "branches": {
@@ -174,6 +208,10 @@
           0,
           null,
           0,
+          0,
+          null,
+          null,
+          0,
           null,
           0,
           null,
@@ -197,6 +235,6 @@
         }
       }
     },
-    "timestamp": 1672865773
+    "timestamp": 1672868961
   }
 }

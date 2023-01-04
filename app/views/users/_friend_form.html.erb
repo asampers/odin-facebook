@@ -1,0 +1,3 @@
+<% unless current_user.friendships.include?(:user)%>
+<%= button_to "Add Friend", [user, user.friendships.new] %>
+<% end %>
