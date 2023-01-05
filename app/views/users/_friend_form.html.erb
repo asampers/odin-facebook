@@ -1,3 +1,7 @@
-<% unless current_user.friendships.include?(:user)%>
-<%= button_to "Add Friend", [user, user.friendships.new] %>
+<% if current_user.friends.include?(user) && user.received_friend_requests.include?(current_user)%>
+  <p class="bg-success">Friends</p>
+<% elsif current_user.received_friend_requests.include?(user) %>
+  <%= button_to 'Accept Friend Request', [user, user.friendships.new] %> 
+<% else %>   
+  <%= button_to 'Add Friend', [user, user.friendships.new] %>
 <% end %>

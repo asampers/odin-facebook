@@ -6,9 +6,10 @@ class User < ApplicationRecord
 
   has_many :posts 
 
-  has_many :friendships, dependent: :destroy
+  has_many :friendships, class_name: 'Friendship', foreign_key: 'user_id', dependent: :destroy
   has_many :friends, through: :friendships
-
+  has_many :occurances_as_friend,  class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
+  has_many :received_friend_requests, through: :occurances_as_friend, source: 'user'
 
   validates :username, presence: true, uniqueness: true
 
@@ -16,7 +17,7 @@ class User < ApplicationRecord
 
   def login
     @login || username || email
-  end
+  end 
 
   private
 

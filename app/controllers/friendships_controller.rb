@@ -5,10 +5,11 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @friendship = Friendships.new(user: current_user, friend_id: @user )
+    @friend = User.find(params[:user_id])
+    @friendship = Friendship.new(user: current_user, friend: @friend)
+    
     if @friendship.save
-      redirect_to request.referrer
+      flash[:notice] = 'Friend request sent.'
     end  
   end
 
