@@ -6,10 +6,13 @@ class User < ApplicationRecord
 
   has_many :posts 
 
-  has_many :friendships, class_name: 'Friendship', foreign_key: 'user_id', dependent: :destroy
-  has_many :friends, through: :friendships
-  has_many :occurances_as_friend,  class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
-  has_many :received_friend_requests, through: :occurances_as_friend, source: 'user'
+  has_many :friendships, ->(user) { FriendshipsQuery.both_ways(user_id: user.id) },
+    inverse_of: :user,
+    dependent: :destroy
+  has_many :friends, ->(user) { UsersQuery.friends(user_id: user.id, scope: true) },
+    through: :friendships
+  #has_many :inverse_friendships,  class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
+  #has_many :inverse_friends, through: :inverse_friendships, source: 'user'
 
   validates :username, presence: true, uniqueness: true
 
@@ -17,6 +20,14 @@ class User < ApplicationRecord
 
   def login
     @login || username || email
+  end 
+
+  def received_request?(friendship)
+    friendship.friend == self
+  end 
+
+  def find_friendship(other_user)
+    self.friendships.find_by(friend: other_user) || self.friendships.find_by(user: other_user)
   end 
 
   private

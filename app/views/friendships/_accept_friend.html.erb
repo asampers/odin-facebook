@@ -1,0 +1,5 @@
+ <%= form_with(model: (user.occurances_as_friend.find_by(user: current_user)),
+                html: { method: :put }) do |f| %>
+    <%= hidden_field_tag :status, "accepted" %>
+    <%= f.submit 'Accept friend request' %>
+    <% end %>
