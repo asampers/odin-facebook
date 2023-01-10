@@ -1,10 +1,16 @@
 <% if user.friends.include?(current_user) %>
     <% @friends = user.find_friendship(current_user.id) %>
-    <div class="<%=@friends.status%>"> <%= @friends.status %> <%= @friends.friend.username %> </div>
+  
     <% if current_user.received_request?(@friends) && @friends.pending? %>
-      <%= button_to 'Accept Request', friendship_path(@friends.id), method: :patch %>
-    <% end %>  
-    <%= button_to 'Unfriend', friendship_path(@friends.id), method: :delete %>
+      <%= button_to 'Accept', friendship_path(@friends.id), method: :patch, class: "btn btn-success me-2" %>
+      <%= button_to 'Decline', friendship_path(@friends.id), method: :delete, class: "btn btn-danger" %>
+    <% elsif @friends.accepted? %>  
+      <div class="text-success me-1">Friend</div>
+      <%= button_to 'Unfriend', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary" %>
+    <% else %>
+    <div class="text-warning me-1">Friendship Pending</div>
+      <%= button_to 'Cancel Request', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary" %>  
+    <% end %>
 <% else %>   
-  <%= button_to 'Add_friend', [user, user.friendships.new] %>
+  <%= button_to 'Add_friend', [user, user.friendships.new], class: "btn btn-primary" %>
 <% end %>
