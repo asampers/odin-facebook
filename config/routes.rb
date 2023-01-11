@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :friendships
   resources :users do
     resources :friendships
+    get :notifications
   end
+
   resources :posts
 end

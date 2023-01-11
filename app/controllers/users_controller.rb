@@ -6,4 +6,10 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def notifications
+      @new = current_user.new_notifications
+      @old = current_user.old_notifications
+      @new.each(&:read)
+  end
 end

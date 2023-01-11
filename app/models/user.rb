@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts 
+  has_many :notifications
 
   has_many :friendships, ->(user) { FriendshipsQuery.both_ways(user_id: user.id) },
     inverse_of: :user,
@@ -25,6 +26,14 @@ class User < ApplicationRecord
   def received_request?(friendship)
     friendship.friend == self
   end 
+
+  def new_notifications
+    notifications.order('created_at DESC').reject(&:was_read)
+  end
+
+  def old_notifications
+    notifications.order('created_at DESC').select(&:was_read)
+  end
 
   def find_friendship(other_user)
     self.friendships.find_by(friend: other_user) || self.friendships.find_by(user: other_user)

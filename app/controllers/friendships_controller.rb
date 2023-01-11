@@ -7,7 +7,8 @@ class FriendshipsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @friendship = current_user.friendships.build(friend: @user)
-    
+    notify(@user, @friendship)
+
     if @friendship.save
       flash[:notice] = 'Friend request sent.'
       redirect_to request.referrer
@@ -19,8 +20,9 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find(params[:id])
-    @friendship.update_attribute(:status, 'Friends')
-    flash[:notice] = 'Friendship accepted!'
+    @friendship.update_attribute(:status, 'accepted')
+    notify(@friendship.user, @friendship)
+    flash[:notice] = "You are now friends with #{@friendship.user.username}!"
       redirect_to request.referrer
   end
 
@@ -37,6 +39,10 @@ class FriendshipsController < ApplicationController
   def select_friend(friendship)
     friendship.friend == current_user ? friendship.user : friendship.friend
   end 
+
+  def notify(user, friendship)
+    user.notifications.create(notifiable: friendship)
+  end
 
   def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id, :status)
