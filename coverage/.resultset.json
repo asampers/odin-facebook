@@ -1,104 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/nanarama/repos/odin-facebook/app/models/user.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/helpers/friendships_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/helpers/posts_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/helpers/users_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/models/friendship.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
       "/home/nanarama/repos/odin-facebook/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -235,6 +137,38 @@
         "branches": {
         }
       },
+      "/home/nanarama/repos/odin-facebook/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/helpers/friendships_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/helpers/posts_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/helpers/users_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/nanarama/repos/odin-facebook/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -250,6 +184,98 @@
       },
       "/home/nanarama/repos/odin-facebook/app/mailers/application_mailer.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/friendship.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/notification.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -316,6 +342,6 @@
         }
       }
     },
-    "timestamp": 1673380294
+    "timestamp": 1673470226
   }
 }
