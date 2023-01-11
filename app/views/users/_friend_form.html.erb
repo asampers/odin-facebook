@@ -8,9 +8,10 @@
       <div class="text-success me-1">Friend</div>
       <%= button_to 'Unfriend', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary" %>
     <% else %>
-    <div class="text-warning me-1">Friendship Pending</div>
-      <%= button_to 'Cancel Request', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary" %>  
+    <div class="d-flex align-items-center   text-warning me-1">Friendship Pending
+      <%= button_to 'Cancel Request', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary ms-3" %>  
+    </div>  
     <% end %>
 <% else %>   
-  <%= button_to 'Add_friend', [user, user.friendships.new], class: "btn btn-primary" %>
+  <%= button_to 'Add_friend', [user, user.friendships.new], class: "btn btn-primary " %>
 <% end %>
