@@ -12,8 +12,8 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :friends, ->(user) { UsersQuery.friends(user_id: user.id, scope: true) },
     through: :friendships
-  #has_many :inverse_friendships,  class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
-  #has_many :inverse_friends, through: :inverse_friendships, source: 'user'
+  has_many :inverse_friendships,  class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
+  has_many :inverse_friends, through: :inverse_friendships, source: 'user'
 
   validates :username, presence: true, uniqueness: true
 
@@ -23,8 +23,8 @@ class User < ApplicationRecord
     @login || username || email
   end 
 
-  def received_request?(friendship)
-    friendship.friend == self
+  def received_request?(other_user)
+    inverse_friends.include?(other_user)
   end 
 
   def new_notifications

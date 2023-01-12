@@ -28,9 +28,12 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = current_user.friendships.find(params[:id])
-    @former_friend = select_friend(@friendship).username
+    @friendship.update_attribute(:status, 'declined')
+    @former_friend = select_friend(@friendship)
+    Notification.delete_by notifiable_id: @friendship.id
+  
     @friendship.destroy
-    flash[:notice] = "You are no longer friends with #{@former_friend}"
+    flash[:notice] = "You are no longer friends with #{@former_friend.username}"
     redirect_to request.referrer 
   end
 

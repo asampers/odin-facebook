@@ -6,10 +6,12 @@ class Friendship < ApplicationRecord
   validates :user_id, :friend_id, :status, presence: true
 
   def message
-    if friend.received_request?(self)
-      'sent you a friend request'
-    else
-      'accepted your friend request'
-    end
-  end
+    if self.pending?
+      " sent you a friend request - "
+    elsif self.declined?
+      " unfriended you."
+    else  
+      " and you are now friends." 
+    end 
+  end      
 end

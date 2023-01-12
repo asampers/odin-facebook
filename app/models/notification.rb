@@ -12,21 +12,20 @@ class Notification < ApplicationRecord
     return unless notifiable_type == 'Friendship'
 
     friendship = Friendship.find(notifiable_id)
-    user.received_request?(friendship)
   end
 
   def read
     self.was_read = true
+    save
   end
 
-  def sender
-    notifiable_type.constantize.find(notifiable_id).user
-  end
+  def sender 
+    recipient = User.find(user_id)
+    sender = notifiable_type.constantize.find(notifiable_id).user
 
-  private
-
-  def load_notifiable
-    resource, id = request.path.split('/')[1, 2]
-	  @notifiable = resource.singularize.classify.constantize.find(id)
+    if recipient == sender
+      return Friendship.find(notifiable_id).friend
+    end 
+    sender    
   end
 end
