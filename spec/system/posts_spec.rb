@@ -9,9 +9,10 @@ RSpec.describe "Posts", type: :system do
     visit new_post_path
     fill_in "What's on your mind?", with: 'Test post'
     click_on 'Post'
-    post = jane.reload.posts.last
+    jane.reload
+    article = jane.posts.last
 
-    result = post.body == 'Test post'
+    result = article.body == 'Test post'
     expect(page).to have_content('Test post')
     expect(result).to be_truthy
   end  
