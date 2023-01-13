@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    user { nil }
+    user { :jane }
     post { nil }
     parent_id { 1 }
   end
