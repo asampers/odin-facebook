@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    user { :jane }
-    post { nil }
-    parent_id { 1 }
+    user {  }
+    post {  }
+    body { "This is a comment!"}
+    parent_id { nil }
   end
 end
