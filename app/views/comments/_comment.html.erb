@@ -1,6 +1,10 @@
 
 <% post.comments.each do |comment|%>
   <div class="collapse show" id="collapseComment<% comment.id%>">
-    <%= comment.body %>
+    <div class="ms-2 me-2 ps-3 pe-3">
+      <hr class="border border-2 opacity-75">
+      <p>Comments</p>
+      <%= comment.body %>
+    </div>
   </div>  
 <% end %>

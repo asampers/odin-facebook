@@ -12,12 +12,10 @@
           <a class="text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
               <%= pluralize(post.comments.count, "Comment") %></a>
         </div>
-      </div>  
-    </div>
-    <div class="card-footer">
+      </div>
       <div class="collapse" id="collapseComment<%= post.id %>">
         <%= render "comments/comment", post: post %>
-      </div>
+      </div>  
     </div>
   </div>
 </div>
@@ -30,7 +28,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <%= render "comments/form", post: post %>
+        <%= render "comments/form", post: post, parent: nil %>
       </div>
     </div>
   </div>
