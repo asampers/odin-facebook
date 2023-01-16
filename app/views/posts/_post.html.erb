@@ -3,6 +3,35 @@
     <div class="card-body">
       <p> <%= post.body %> </p> 
       <p class="card-text">Author: <%= post.user.username %> </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+            data-bs-target="#commentModal<%= post.id %>">Comment</button>
+        </div>
+        <div class="d-flex justify-content-start">
+          <a class="text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
+              <%= pluralize(post.comments.count, "Comment") %></a>
+        </div>
+      </div>  
+    </div>
+    <div class="card-footer">
+      <div class="collapse" id="collapseComment<%= post.id %>">
+        <%= render "comments/comment", post: post %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="commentModal<%= post.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New Comment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "comments/form", post: post %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<%= form_for :comment, url:post_comments_path(post.id) do |f| %>
+    <div class="mb-4">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :body, "Comment:", class: "mb-2" %>
+    <%= f.text_area :body, rows: 4, placeholder: "Enter your text here...",
+                      class: "form-control bg-light", required: "required" %>
+    </div>   
+    <div class="modal-footer pb-0">
+      <button type="button" class="btn btn-secondary ms-3" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-secondary ms-3" data-bs-dismiss="modal">Post Comment</button>
+    </div>                
+<% end %>
