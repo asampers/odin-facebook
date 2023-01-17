@@ -1,10 +1,13 @@
+<div class="ms-2 me-2 ps-3 pe-3">
+  <hr class="border border-2 opacity-75">
+  <%= link_to comment.user.username, comment.user %>: <%= comment.body %>
+  <a class="text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseReply<%= comment.id%>" role="button">Reply</a> 
+</div>
 
-<% post.comments.each do |comment|%>
-  <div class="collapse show" id="collapseComment<% comment.id%>">
-    <div class="ms-2 me-2 ps-3 pe-3">
-      <hr class="border border-2 opacity-75">
-      <p>Comments</p>
-      <%= comment.body %>
-    </div>
-  </div>  
-<% end %>
+<div class="ms-4" id=<%= "nested#{comment.id}" %> >
+  <%= render comment.comments, post: post %>
+</div>  
+
+<div class="collapse" id="collapseReply<%= comment.id %>">
+  <%= render "comments/form", post: post, parent: comment %>
+</div>  
