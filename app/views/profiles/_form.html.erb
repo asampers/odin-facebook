@@ -1,0 +1,15 @@
+<div class="container">
+  <%= form_with model: @profile do |f| %>
+      <%= f.label :full_name, class: "form-label"%>
+      <%= f.text_area :full_name, class: "form-control" %>
+      <%= f.label :location, class: "form-label"%>
+      <%= f.text_area :location, class: "form-control" %>
+      <%= f.label :age, class: "form-label"%>
+      <%= f.number_field :age, class: "form-control"  %>
+      <%= f.label :bio, class: "form-label"%>
+      <%= f.text_area :bio, placeholder: "Tell us a little about yourself...", class:"form-control", rows:"3"%>
+    <div class="d-flex justify-content-end">  
+      <%= f.submit 'Save', class:"btn btn-primary"%>
+    </div>  
+  <% end %>
+</div>  
