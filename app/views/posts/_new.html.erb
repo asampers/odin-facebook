@@ -1,0 +1,6 @@
+<%= form_with model: @post do |form| %>
+    <%= form.text_area :body, placeholder: "What's on your mind?", class:"form-control", rows:"5"%>
+  <div class="d-flex justify-content-end">  
+    <%= form.submit 'Post', class:"btn btn-primary"%>
+  </div>  
+<% end %>
