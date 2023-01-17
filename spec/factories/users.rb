@@ -1,9 +1,16 @@
 FactoryBot.define do
-  factory :faker do 
-    username { Faker::Internet.username }
-    email { Faker::Internet.email }
-    password { Faker::Internet.password }
-    id { Integer }
+  factory :user do
+    username { 'User' }
+    email { 'email@email.com' }
+    password { 'password' }
+  
+  
+    trait :faker do 
+      username { Faker::Internet.username }
+      email { Faker::Internet.email }
+      password { Faker::Internet.password }
+      id { Integer }
+    end 
 
     trait :jane do 
       username { 'Jane' }
