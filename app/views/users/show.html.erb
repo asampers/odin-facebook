@@ -12,10 +12,29 @@
     <div class="col">
       <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  
     </div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#posts">Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#friends">Friends</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#about">About</a>
+    </li>
+  </ul>
 </div>
 
-<div class="container"><%= render 'profiles/form' %>
+<div class="tab-content">
+  <div class="tab-pane container active" id="posts">These are your posts</div>
+  <div class="tab-pane container fade" id="friends">These are your friends</div>
+  <div class="tab-pane container fade" id="about">
+    <div class="container"><%= render 'profiles/form' %> </div>
   </div>
+</div>
+
+
 
 
 
