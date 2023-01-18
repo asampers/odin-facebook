@@ -1,4 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row m-3 text-center">
+  <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
+    <h1 class="display-1"> <%= @user.username %> </h1>
+  <% else %>
+    <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
+    <h3 class="display-3"> <%= @user.username %> </h3> 
+  <% end %>
+  <div class="d-flex justify-content-center align-content-center">
+    <div class="col">
+      <p class="pe-2 float-end text-secondary border-end border-dark"> <%= pluralize(@user.friends.count, "Friend") %> </p>
+    </div>
+    <div class="col">
+      <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  
+    </div>
+</div>
 
-<%= render 'profiles/form' %>
+<div class="container"><%= render 'profiles/form' %>
+  </div>
+
+
+
