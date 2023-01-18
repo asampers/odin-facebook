@@ -21,6 +21,6 @@ before_action :authenticate_user!
 
   private 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :user_id)
   end
 end
