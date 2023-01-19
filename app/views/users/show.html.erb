@@ -3,7 +3,7 @@
     <h1 class="display-1"> <%= @user.username %> </h1>
   <% else %>
     <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
-    <h3 class="display-3"> <%= @user.username %> </h3> 
+    <h3> <%= @user.username %> </h3> 
   <% end %>
   <div class="d-flex justify-content-center align-content-center">
     <div class="col">
@@ -42,7 +42,7 @@
     <% if @user.profile.nil? %>
       <div class="container">
         <h3 class="text-secondary">Feel free to add your profile info.</h3>
-        <%= render 'profiles/form', user: @user %> 
+        <%= render 'profiles/form', profile: @profile  %> 
       </div>
     <% end %>
   </div>

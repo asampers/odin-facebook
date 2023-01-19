@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :friendships
   resources :users do
     resources :friendships
-    resources :profile
+    resources :profiles
     get :notifications
   end
-  resolve("Profile") { [:profile] }
+  
   resources :posts do 
     resources :comments, only: %i[create destroy]
   end  

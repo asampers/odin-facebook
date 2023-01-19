@@ -1,11 +1,11 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
 
   def new 
-    @profile = Profile.new
+    @profile = current_user.build_profile
   end
 
   def create 
-    @profile = current_user.profile.build(profile_params)
+    @profile = current_user.create_profile(profile_params)
 
     if @profile.save
       flash[:notice] = "Successfully updated your profile"

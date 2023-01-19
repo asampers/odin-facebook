@@ -1,8 +1,8 @@
-<%= form_with url: user_profile_index_url(user_id: @user.id) do |f| %>
+<%= form_for :profile, url: user_profiles_path(current_user.id) do |f| %>
     <%= f.label :full_name, class: "form-label"%>
-    <%= f.text_area :full_name, class: "form-control" %>
+    <%= f.text_field :full_name, class: "form-control" %>
     <%= f.label :location, class: "form-label"%>
-    <%= f.text_area :location, class: "form-control" %>
+    <%= f.text_field :location, class: "form-control" %>
     <%= f.label :age, class: "form-label"%>
     <%= f.number_field :age, class: "form-control"  %>
     <%= f.label :bio, class: "form-label"%>
