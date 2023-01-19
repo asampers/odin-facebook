@@ -1,0 +1,13 @@
+<% if @user == current_user %>
+  <div class="container">
+    <h3 class="text-secondary">Feel free to add your profile info.</h3>
+    <%= render 'profiles/form', profile: @profile  %> 
+  </div>
+<% else %>
+  <p><b>Name: </b> </p> 
+  <p><b>Age: </b> </p>
+  <p><b>Location: </b> </p>
+  <p><b>Bio: </b> </p>
+  <p><b>Joined: </b><%= @user.created_at.strftime("%b %-d, %Y") %> </p>
+<% end %>
+

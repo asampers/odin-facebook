@@ -1,8 +1,5 @@
 <div class="container mt-2"><h1>Users</h1>
   <div id="users" >
-    <% @users.each do |user| %>
-      <% next if user == current_user %>
-      <%= render user %>
-    <% end %>
+    <%= render @users %>
   </div>
 </div>

@@ -27,24 +27,18 @@
 </div>
 
 <div class="tab-content">
-  <div class="tab-pane container active" id="posts">These are your posts</div>
+  <div class="tab-pane container active" id="posts">
+    <%= render @user.posts %>
+  </div>
   <div class="tab-pane container fade" id="friends">
     <% if @user.friends.any? %>
-      <% @user.friends.each do |friend| %>
-        <%= render 'user', user: friend %>
-      <% end %> 
+      <%= render @user.friends %>  
     <% else %>
-      <p><em>A stranger is just a friend you haven't met yet.</em>
-      <%= link_to "Let's find some!", users_path %> </p>
-    <% end %>   
+      <%= render "no_friends", user: @user %> 
+    <% end %>    
   </div>
-  <div class="tab-pane container fade" id="about">
-    <% if @user.profile.nil? %>
-      <div class="container">
-        <h3 class="text-secondary">Feel free to add your profile info.</h3>
-        <%= render 'profiles/form', profile: @profile  %> 
-      </div>
-    <% end %>
+  <div class="tab-pane container fade" id="about"> 
+    <%= render @user.profile || "profiles/empty" %>
   </div>
 </div>
 

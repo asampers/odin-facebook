@@ -1,5 +1,5 @@
 <div id="<%= dom_id user %>">
   <ul class="list-group">
-    <li class="d-flex align-items-center justify-content-between list-group-item"><a class="align-items-center" href="user_path"><%= user.username %></a>  <%= render 'friend_form', user: user %> </li>
+    <li class="d-flex align-items-center justify-content-between list-group-item"> <%= link_to "#{user.username}", user_path(user.id), class: "align-items-center" %> <%= render 'friend_form', user: user %> </li>
   </ul>
 </div>

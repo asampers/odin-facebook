@@ -1,0 +1,7 @@
+<% if @user == current_user %>
+  <p><em>A stranger is just a friend you haven't met yet.</em>
+    <%= link_to "Let's find some!", users_path %> </p>
+<% else %>
+  <p><%= @user.username %> doesn't have any friends yet.</p>
+  <%= render 'friend_form', user: user %>
+<% end %>

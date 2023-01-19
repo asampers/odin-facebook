@@ -1,5 +1,5 @@
-<%= form_with(url: friendships_path, method: :post) do |f| %>
+<%= form_for :friendship, url: user_friendships_path(current_user.id) do |f| %>
     <%= hidden_field_tag :user_id, current_user.id %>
     <%= hidden_field_tag :friend_id, user.id %>
-    <%= f.submit "Add Friend" %>
-  <% end %>
+    <%= f.submit "Add Friend", class: "btn btn-primary" %>
+<% end %>
