@@ -7,7 +7,7 @@
   <% end %>
   <div class="d-flex justify-content-center align-content-center">
     <div class="col">
-      <p class="pe-2 float-end text-secondary border-end border-dark"> <%= pluralize(@user.friends.count, "Friend") %> </p>
+      <p class="pe-2 float-end text-secondary border-end border-dark"> <%= pluralize(@user.active_friend_count, "Friend") %> </p>
     </div>
     <div class="col">
       <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  

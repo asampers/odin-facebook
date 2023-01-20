@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.excluding(current_user)
+    @users = User.all.excluding(current_user).order('username ASC')
   end
 
   def show
     @user = User.find(params[:id])
-    @profile = Profile.find_or_initialize_by(user_id: @user.id)
+    @profile = Profile.find_by(user_id: @user.id)
   end
 
   def notifications
