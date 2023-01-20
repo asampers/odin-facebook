@@ -33,20 +33,6 @@ class User < ApplicationRecord
     self.friends.count - self.friendships.pending.count
   end
 
-  def received_requests
-    self.inverse_friendships
-  end
-
-  def sent_requests
-    self.friendships - self.inverse_friendships
-  end 
-
-  def
-
-  def initiated_friends
-    self.friends - self.inverse_friends
-  end
-
   def new_notifications
     notifications.order('created_at DESC').reject(&:was_read)
   end

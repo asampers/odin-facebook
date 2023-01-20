@@ -4,3 +4,6 @@
 <p><b>Bio: </b><%= profile.bio %> </p>
 <p><b>Joined: </b><%= @user.created_at.strftime("%b %-d, %Y") %> </p>
 
+<%= link_to "Edit", edit_user_profile_path(@user, profile), action: :patch, class: "btn btn-primary float-center" if @user == current_user %>
+
+

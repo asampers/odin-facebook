@@ -1,7 +1,7 @@
 <% if @user == current_user %>
   <div class="container">
     <h3 class="text-secondary">Feel free to add your profile info.</h3>
-    <%= render 'profiles/form', profile: @profile  %> 
+    <%= render 'profiles/form' %> 
   </div>
 <% else %>
   <p><b>Name: </b> </p> 

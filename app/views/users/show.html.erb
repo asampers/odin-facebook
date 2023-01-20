@@ -38,7 +38,9 @@
     <% end %>    
   </div>
   <div class="tab-pane container fade" id="about"> 
-    <%= render @user.profile || "profiles/empty" %>
+    <%= turbo_frame_tag "about" do %>
+      <%= render @user.profile || "profiles/empty" %>
+    <% end %>
   </div>
 </div>
 
