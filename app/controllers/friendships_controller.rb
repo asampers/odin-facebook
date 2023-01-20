@@ -6,7 +6,8 @@ class FriendshipsController < ApplicationController
 
   def create
     @friendship = current_user.friendships.build(friendship_params)
-    @user = User.find(params[:friend_id])
+    @user = User.find(@friendship.friend.id)
+
     notify(@user, @friendship)
 
     if @friendship.save
