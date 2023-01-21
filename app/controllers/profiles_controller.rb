@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[edit update]
+  before_action :set_profile, only: %i[show update]
 
   def new 
     @profile = current_user.build_profile
@@ -9,10 +9,10 @@ class ProfilesController < ApplicationController
     @profile = current_user.build_profile(profile_params)
 
     if @profile.save
-      flash[:notice] = "Successfully updated your profile"
+      flash[:notice] = "Successfully saved your profile."
       redirect_to user_path(current_user)
     else  
-      flash[:alert] = "Unable to update profile."
+      flash[:alert] = "Unable to save profile."
       redirect_to user_path(current_user) 
     end   
   end
@@ -21,8 +21,10 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
+      flash[:notice] = "Successfully updated your profile."
       redirect_to user_path(current_user)
     else 
+      flash[:alert] = "Unable to update profile."
       render :edit, status: :unprocessable_entity 
     end   
   end 
@@ -30,7 +32,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find_by(params[user_id: current_user.id])
+    @profile = current_user.profile
   end 
 
   def profile_params

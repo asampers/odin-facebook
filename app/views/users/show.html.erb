@@ -39,6 +39,11 @@
   </div>
   <div class="tab-pane container fade" id="about"> 
     <%= turbo_frame_tag "about" do %>
+      <% if notice %>
+        <div class="alert alert-success alert-dismissible"><%= notice %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <% end %>
       <%= render @user.profile || "profiles/empty" %>
     <% end %>
   </div>
