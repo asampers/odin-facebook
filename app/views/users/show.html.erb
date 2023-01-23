@@ -3,7 +3,8 @@
     <h1 class="display-1"> <%= @user.username %> </h1>
   <% else %>
     <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
-    <h3> <%= @user.username %> </h3> 
+    <h3> <%= @user.username %> </h3>
+    <%= render 'friend_form', user: @user %> 
   <% end %>
   <div class="d-flex justify-content-center align-content-center">
     <div class="col">
@@ -32,7 +33,7 @@
   </div>
   <div class="tab-pane container fade" id="friends">
     <% if @user.friends.any? %>
-      <%= render @user.friends %>  
+      <%= render 'friendships/friend_index', user: @user %>  
     <% else %>
       <%= render "no_friends", user: @user %> 
     <% end %>    

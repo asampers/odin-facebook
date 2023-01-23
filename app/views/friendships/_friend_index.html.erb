@@ -1,0 +1,16 @@
+<% if current_user == @user %>
+  <% @accepted_friends.each do |friend| %>
+    <% next if friend == @user %>
+    <%= render 'users/user', user: friend %>
+  <% end %> 
+  <h5>Pending Requests</h5>
+  <% @pending_friends.each do |friend| %>
+    <% next if friend == @user %>
+    <%= render 'users/user', user: friend %>
+  <% end %>
+<% else %>   
+  <% @accepted_friends.each do |friend| %>
+    <% next if friend == @user %>
+    <%= render 'friendships/friend', user: friend %>
+  <% end %> 
+<% end %>  

@@ -1,3 +1,4 @@
+
 <% if current_user.friends.include?(user) %>
     <% @friends = current_user.find_friendship(user.id) %>
   
@@ -17,3 +18,4 @@
 <% elsif current_user != user %>   
   <%= render 'add_friend', user: user %>
 <% end %>
+
