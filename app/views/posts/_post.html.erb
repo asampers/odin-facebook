@@ -1,8 +1,14 @@
 <div id="<%= dom_id post %>">
-  <div class="card">
-    <div class="card-body">
-      <p> <%= post.body %> </p> 
-      <p class="card-text">Author: <%= post.user.username %> </p>
+  <div class="container mt-3 mb-4 p-3 border shadow-sm rounded hover-shadow">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <%= link_to "#{post.user.username}", user_path(post.user.id),
+                    class:"fw-semibold text-primary text-decoration-none" %>
+        <p class="text-secondary small"><%= time_ago_in_words(post.created_at) %> ago </p>           
+      </div>
+      <div class="container mb-3">
+        <p class="fs-5" style="word-wrap: break-word"> <%= post.body %> </p>  
+      </div>
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" 

@@ -3,7 +3,7 @@
     <% next if friend == @user %>
     <%= render 'users/user', user: friend %>
   <% end %> 
-  <h5>Pending Requests</h5>
+  <h5 class="mt-1"> <%= "Pending Requests" if @pending_friends.any? %> </h5>
   <% @pending_friends.each do |friend| %>
     <% next if friend == @user %>
     <%= render 'users/user', user: friend %>
