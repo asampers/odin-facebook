@@ -1,4 +1,3 @@
-
 <% if current_user.friends.include?(user) %>
     <% @friends = current_user.find_friendship(user.id) %>
   
@@ -8,16 +7,14 @@
         <%= button_to 'Decline', friendship_path(@friends.id), method: :delete, class: "btn btn-danger" %>
       </div>
     <% elsif @friends.accepted? %>  
-      <div class="d-flex align-items-center">
-        <div class="text-success me-3">Friend</div>
-        <%= button_to 'Unfriend', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary" %>
+      <div class="d-flex align-items-center text-success">Friend 
+        <%= button_to 'Unfriend', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary ms-3" %>
       </div>
     <% else %>
-    <div class="d-flex align-items-center   text-warning me-1">Friendship Pending
+    <div class="d-flex align-items-center text-warning">Friendship Pending
       <%= button_to 'Cancel Request', friendship_path(@friends.id), method: :delete, class: "btn btn-secondary ms-3" %>  
     </div>  
     <% end %>
 <% elsif current_user != user %>   
   <%= render 'add_friend', user: user %>
 <% end %>
-
