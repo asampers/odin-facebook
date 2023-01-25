@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= current_user.username%>
+            <%= image_tag current_user.gravatar_url(default: :mm), class:"rounded-circle img-fluid gravatar-nav"%>
           </a>
           <ul class="dropdown-menu" style="min-width:60px">
             <p class="px-3 pt-2 mt-n1 d-block mb-0" style="text-decoration: none">

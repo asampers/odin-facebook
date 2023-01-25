@@ -1,4 +1,6 @@
-<li class="list-group-item"><%= link_to notification.sender.username, notification.sender %>
+<li class="list-group-item">
+  <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
+  <%= link_to notification.sender.username, notification.sender %>
         <span id=<%= "#{notification.notifiable_type.downcase}-message#{notification.sender.id}" %> >
           <%= notification.message %>
         </span>
