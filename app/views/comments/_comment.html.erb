@@ -2,14 +2,26 @@
   <hr class="border border-2 opacity-75">
   <%= image_tag post.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
   <%= link_to comment.user.username, comment.user %>: <%= comment.body %>
-  <a class="text-secondary text-decoration-none" data-bs-toggle="modal" href="#commentModal<%= comment.id%>" role="button">Reply</a> 
+  <a class="text-secondary text-decoration-none" data-bs-toggle="modal" href="#replyModal<%= comment.id %>">Reply</a> 
   <%= link_to "Delete", post_comment_path(post, comment), class:"text-secondary text-decoration-none", data: { turbo_method: :delete } if comment.user == current_user %>
 </div>
 
-<div class="ms-4" id=<%#= "nested#{comment.id}" %> >
+<div class="ms-4" id=<%#= "#{comment.id}" %> >
   <%= render comment.comments, post: post %>
 </div>  
 
-<div class="collapse" id="collapseReply<%= comment.id %>">
-  <%= render "comments/form", post: post, parent: comment %>
-</div>  
+<div class="modal" id="replyModal<%= comment.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New Comment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "comments/form", post: post, parent: comment %>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 

@@ -19,7 +19,7 @@
           <li class="nav-item">
             <%= link_to user_notifications_path(current_user.id), class: "nav-link text-light" do %> 
               Notifications<span class="badge"><ion-icon name="notifications" class="text-light"></ion-icon>
-                <span class="bg-danger"><%= current_user.new_notifications.count if current_user.new_notifications.any? %></span> </span>  
+                <span class="bg-danger rounded"><%= current_user.new_notifications.count class:"px-2 py-1" if current_user.new_notifications.any? %></span> </span>  
             <% end %>
           </li>
           <li class="nav-item dropdown">
