@@ -13,17 +13,19 @@
       <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  
     </div>
   </div>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-bs-toggle="tab" href="#posts">Posts</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#friends">Friends</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#about">About</a>
-    </li>
-  </ul>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#posts">Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#friends">Friends</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#about">About</a>
+      </li>
+    </ul>
+  </div>  
 </div>
 
 <div class="tab-content">

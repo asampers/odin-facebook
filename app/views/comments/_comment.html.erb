@@ -6,7 +6,7 @@
   <%= link_to "Delete", post_comment_path(post, comment), class:"text-secondary text-decoration-none", data: { turbo_method: :delete } if comment.user == current_user %>
 </div>
 
-<div class="ms-4" id=<%#= "#{comment.id}" %> >
+<div class="ms-4" id=<%= "nested#{comment.id}" %> >
   <%= render comment.comments, post: post %>
 </div>  
 
@@ -14,7 +14,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">New Comment</h4>
+        <h4 class="modal-title">Response</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
