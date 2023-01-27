@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-sm bg-dark">
+<nav class="navbar navbar-expand-sm mx-auto">
   <div class="container-fluid ">
+    <a class="navbar-brand fs-4 fw-bold text-light ms-2" href="/">Friend Book</a>
     <% if user_signed_in? %>
-      <a class="navbar-brand fw-bold text-info ms-2" href="/">Welcome, <%= current_user.username %></a>
       <button class="navbar-toggler text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon bg-info rounded"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-        <ul class="navbar-nav"> 
+      <div class="collapse navbar-collapse justify-content-end " id="collapsibleNavbar">
+        <ul class="navbar-nav align-items-center"> 
           <li class="nav-item">
             <%= link_to "Create Post", new_post_path,
                   class: "nav-link text-light me-2" %>
@@ -41,9 +41,7 @@
           <%= button_to 'Logout', destroy_user_session_path, 
               class: "btn btn-light", method: :delete, data: { turbo: false } %> 
         </ul>
-      </div>  
-    <% else %>  
-      <a class="navbar-brand fs-4 fw-bold text-light" href="/">Friend Book</a>
+      </div>   
     <% end %> 
   </div>
 </nav>
