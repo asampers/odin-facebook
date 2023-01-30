@@ -28,7 +28,13 @@
       </div>
       <div class="collapse" id="collapseComment<%= post.id %>">
         <%= render "comments/comments", post: post %>
-      </div>  
+      </div> 
+      <div class="collapse" id="collapseReaction<%= post.id %>">
+        <hr class="border border-2 opacity-75">
+        <% post.reactions.each do |reaction| %>
+          <%= render "reactions/reactor", user: reaction.user  %>
+        <% end %>  
+      </div>   
     </div>
   </div>
 </div>

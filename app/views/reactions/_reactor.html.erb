@@ -1,0 +1,11 @@
+<div class="ps-2 pe-2">
+  <div>
+    <div class="mb-2">
+      <%= image_tag user.gravatar_url(default: :mm),
+                    :class => "gravatar-comment me-1" %>
+      <%= link_to "#{user.username}",
+                    user_path(user),
+                    class: "text-decoration-none" %>
+    </div>
+  </div>
+</div>
