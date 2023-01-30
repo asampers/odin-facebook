@@ -224,6 +224,19 @@
         "branches": {
         }
       },
+      "/home/nanarama/repos/odin-facebook/app/controllers/reactions_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/nanarama/repos/odin-facebook/app/controllers/users_controller.rb": {
         "lines": [
           0,
@@ -288,6 +301,14 @@
         "branches": {
         }
       },
+      "/home/nanarama/repos/odin-facebook/app/helpers/reactions_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/nanarama/repos/odin-facebook/app/helpers/users_helper.rb": {
         "lines": [
           0,
@@ -330,6 +351,7 @@
       },
       "/home/nanarama/repos/odin-facebook/app/models/comment.rb": {
         "lines": [
+          0,
           0,
           0,
           0,
@@ -418,7 +440,7 @@
           0,
           0,
           0,
-          null,
+          0,
           0,
           0
         ],
@@ -441,6 +463,13 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
           0
         ],
         "branches": {
@@ -455,6 +484,7 @@
           0,
           0,
           null,
+          0,
           0,
           0,
           0,
@@ -569,6 +599,6 @@
         }
       }
     },
-    "timestamp": 1675104976
+    "timestamp": 1675112503
   }
 }
