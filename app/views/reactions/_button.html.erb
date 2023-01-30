@@ -1,0 +1,12 @@
+<% reaction = current_user.reactions.find_by(reactable: reactable) %>
+<% if reaction.nil? %>
+  <%= button_to reactions_path, params: { reaction: { reactable_id: reactable.id, reactable_type: reactable.class}}, 
+                  method: :post, class: "btn btn-primary" do %>
+                  <ion-icon name="thumbs-up"></ion-icon> Like
+  <% end %>                                 
+<% else %>
+  <%= button_to reaction_path(reaction), method: :delete,
+                  class: "btn btn-primary" do %>
+                  <ion-icon name="thumbs-down"></ion-icon> Unlike
+  <% end %>                 
+<% end %>   
