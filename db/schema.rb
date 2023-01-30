@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_223852) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_30_185615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_223852) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "reactions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "reactable_type", null: false
+    t.bigint "reactable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reactable_type", "reactable_id"], name: "index_reactions_on_reactable"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -86,4 +96,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_223852) do
   add_foreign_key "notifications", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "reactions", "users"
 end
