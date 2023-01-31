@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :reaction do
     user { nil }
-    reactionable { nil }
+    reactable { nil }
   end
 end
