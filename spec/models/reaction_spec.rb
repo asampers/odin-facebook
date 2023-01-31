@@ -7,6 +7,12 @@ RSpec.describe Reaction, type: :model do
   let!(:comment) { FactoryBot.create(:comment, user: jane, post: post) }
   let!(:comment_reaction) { FactoryBot.create(:reaction, user: jane, reactable_id: comment.id, reactable_type: comment.class) }
   
+  context 'validations' do 
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:reactable) }
+    it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:reactable_id, :reactable_type) }
+  end 
+
   describe "#message" do
     context 'inserts the correct reaction_type' do
       it 'is comment for comments' do 

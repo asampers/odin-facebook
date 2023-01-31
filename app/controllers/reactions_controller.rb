@@ -18,6 +18,6 @@ class ReactionsController < ApplicationController
   private
 
   def reaction_params
-    params.require(:reaction).permit(:reactable_id, :reactable_type)
+    params.require(:reaction).permit(:user_id, :reactable_id, :reactable_type)
   end
 end
