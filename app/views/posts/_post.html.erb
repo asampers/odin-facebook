@@ -11,27 +11,36 @@
       <div class="container mb-3">
         <p class="fs-5" style="word-wrap: break-word"> <%= post.body %> </p>  
       </div>
-      <div class="d-sm-inline-flex justify-content-between align-items-center">
-        <div class="d-flex">
-          <%= render partial: "reactions/button", locals: { reactable: post }%>
-          <button type="button" class="btn btn-primary text-nowrap ms-2" data-bs-toggle="modal" 
-              data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon>Comment</button>
-        </div>  
-        <div class="d-flex justify-content-end">
-          <a class=" text-secondary text-decoration-none ms-2 me-3" data-bs-toggle="collapse" href="#collapseReaction<%= post.id%>" role="button"> 
-              <%= pluralize(post.reactions.count, "Like") %></a>
+      <div class="d-flex justify-content-between">
+          <a class="text-secondary text-decoration-none ms-2 me-3" data-bs-toggle="modal" href="#collapseReaction<%= post.id%>" role="button"> 
+              <%= pluralize(post.reactions.count, "Like") unless post.reactions.count.zero? %></a>
           <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
               <%= pluralize(post.comments.count, "Comment") %></a>
         </div>
+      <hr class="border border-1 opacity-75">  
+      <div class="d-flex justify-content-around align-items-center btn-text">
+        <%= render partial: "reactions/button", locals: { reactable: post } %>
+        <button type="button" class="btn btn-primary text-nowrap ms-2" data-bs-toggle="modal" 
+            data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon> Comment</button> 
       </div>
       <div class="collapse" id="collapseComment<%= post.id %>">
         <%= render "comments/comments", post: post %>
       </div> 
-      <div class="collapse" id="collapseReaction<%= post.id %>">
-        <hr class="border border-2 opacity-75">
-        <% post.reactions.each do |reaction| %>
-          <%= render "reactions/reactor", user: reaction.user  %>
-        <% end %>  
+
+      <div class="modal" id="collapseReaction<%= post.id %>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Liked by:</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <% post.reactions.each do |reaction| %>
+                <%= render "reactions/reactor", user: reaction.user  %>
+              <% end %>
+            </div>   
+          </div> 
+        </div>      
       </div>   
     </div>
   </div>
@@ -49,4 +58,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
