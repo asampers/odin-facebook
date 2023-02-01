@@ -1,19 +1,21 @@
 <div class="row m-3 text-center">
-  <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
-    <h1 class="display-1"> <%= @user.username %> </h1>
-  <% else %>
-    <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
-    <h3> <%= @user.username %> </h3>
-  <% end %>
-  <div class="d-flex justify-content-center align-content-center">
-    <div class="col">
-      <p class="pe-2 float-end text-secondary border-end border-dark"> <%= pluralize(@user.active_friend_count, "Friend") %> </p>
+  <div class="profile-header rounded-top border border-bottom-0">  
+    <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
+      <h1 class="display-1"> <%= @user.username %> </h1>
+    <% else %>
+      <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
+      <h3> <%= @user.username %> </h3>
+    <% end %>
+    <div class="d-flex justify-content-center align-content-center">
+      <div class="col">
+        <p class="pe-2 float-end text-secondary border-end border-dark"> <%= pluralize(@user.active_friend_count, "Friend") %> </p>
+      </div>
+      <div class="col">
+        <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  
+      </div>
     </div>
-    <div class="col">
-      <p class="ps-2 float-start text-secondary"> <%= pluralize(@user.posts.count, "Post") %> </p>  
-    </div>
-  </div>
-  <div class="container">
+  </div>  
+  <div class="profile-header border-start border-end rounded-bottom container">
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" data-bs-toggle="tab" href="#posts">Posts</a>

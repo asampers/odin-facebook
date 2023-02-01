@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
 
     if @comment.save
       notify(@post.user, @comment)
-      redirect_to post_path(@post)
+      redirect_to request.referrer
     else  
       flash[:alert] = "Unable to save comment."
-      redirect_to post_path(@post) 
+      redirect_to request.referrer 
     end   
   end
 
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     @comment.destroy
     flash[:notice] = "Comment deleted."
-    redirect_to post_path(@post)
+    redirect_to request.referrer
   end
 
   private
