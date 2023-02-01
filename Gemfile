@@ -12,6 +12,8 @@ gem "sprockets-rails"
 #Use Devise for user authentication
 gem 'devise'
 
+gem 'figaro'
+
 #Use OmniAuth for Facebook login
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'

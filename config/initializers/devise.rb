@@ -271,7 +271,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, 'APP_ID', 'APP_SECRET'
+  config.omniauth :facebook, Figaro.env.facebook_app_id, Figaro.env.facebook_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

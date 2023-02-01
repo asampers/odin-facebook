@@ -48,6 +48,14 @@ class User < ApplicationRecord
     self.friendships.find_by(friend: other_user) || self.friendships.find_by(user: other_user)
   end 
 
+  def self.from_omniauth(auth)
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.username = auth.info.name   
+    end
+  end
+
   private
 
   def self.find_for_database_authentication(warden_condition)
