@@ -3,7 +3,8 @@ class User < ApplicationRecord
   gravtastic
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook]
          
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy 

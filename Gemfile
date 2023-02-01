@@ -12,6 +12,10 @@ gem "sprockets-rails"
 #Use Devise for user authentication
 gem 'devise'
 
+#Use OmniAuth for Facebook login
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
