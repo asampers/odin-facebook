@@ -1,5 +1,5 @@
 <div class="row m-3 text-center">
-  <div class="profile-header rounded-top border border-bottom-0">  
+  <div class="profile-header rounded-top border border-3 border-bottom-0">  
     <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
       <h1 class="display-1"> <%= @user.username %> </h1>
     <% else %>
@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>  
-  <div class="profile-header border-start border-end rounded-bottom container">
+  <div class="profile-header border-3 border-start border-end rounded-bottom container">
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" data-bs-toggle="tab" href="#posts">Posts</a>
