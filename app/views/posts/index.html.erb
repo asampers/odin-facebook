@@ -4,9 +4,7 @@
   </div>
   <div id="posts">  
     <% @posts.each do |post| %>
-      <%= turbo_frame_tag post do %>
         <%= render post %> 
-      <% end %>  
-    <% end %> 
+      <% end %>   
   <div>
 </div>  

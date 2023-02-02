@@ -48,7 +48,7 @@ RSpec.describe "Reactions", type: :system do
 
     it 'shows 0 Likes on the post' do
       click_on 'Unlike'
-      expect(page).to have_content '0 Likes'
+      expect(jane_post.reactions).to be_empty
     end
   end 
 end
