@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-02T14:11:22-06:00">2023-02-02T14:11:22-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-02T17:22:11-06:00">2023-02-02T17:22:11-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2675,7 +2675,7 @@
 
             
 
-            <code class="ruby">    @posts = Post.all.includes(:user, :comments).order(created_at: :desc)</code>
+            <code class="ruby">    @posts = Post.all.includes(:user).order(created_at: :desc)</code>
           </li>
         </div>
       
@@ -4119,7 +4119,7 @@
 
             
 
-            <code class="ruby">    @accepted_friends = @user.friendships.accepted.map(&amp;:user) + @user.friendships.accepted.map(&amp;:friend)</code>
+            <code class="ruby">    @accepted_friends = @user.friendships.includes(:user).accepted.map(&amp;:user) + @user.friendships.includes(:friend).accepted.map(&amp;:friend)</code>
           </li>
         </div>
       
@@ -4130,7 +4130,7 @@
 
             
 
-            <code class="ruby">    @pending_friends = @user.friendships.pending.map(&amp;:user) + @user.friendships.pending.map(&amp;:friend)</code>
+            <code class="ruby">    @pending_friends = @user.friendships.includes(:user).pending.map(&amp;:user) + @user.friendships.includes(:friend).pending.map(&amp;:friend)</code>
           </li>
         </div>
       

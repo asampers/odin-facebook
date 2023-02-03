@@ -47,7 +47,7 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    
+    <%= query_diet_widget if Rails.env.development? %>
     <%= yield %>
   </body>
 </html>

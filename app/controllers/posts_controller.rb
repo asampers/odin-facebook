@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.includes(:user).order(created_at: :desc)
+  end
+
+  def show
+    @post = Post.find(params[:id]).includes(:comments, :reactions)
   end
 
   def new
