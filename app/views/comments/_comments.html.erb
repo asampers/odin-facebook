@@ -2,8 +2,8 @@
   <div class="collapse show" id="collapseComment<% comment.id%>">
     <%= turbo_frame_tag comment do %>
       <% unless comment.parent %>
-      <%= render 'comments/comment', comment: comment, post: post, cached: true %>  
-      <% end %>
-    <% end %>     
+        <%= render 'comments/comment', comment: comment, post: post, cached: true %>  
+      <% end %>    
+    <% end %>
   </div>    
 <% end %>

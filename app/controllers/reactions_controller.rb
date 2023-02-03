@@ -2,6 +2,7 @@ class ReactionsController < ApplicationController
   def create
     @reaction = current_user.reactions.create(reaction_params)
     user = @reaction.reactable.user 
+    
     if !@reaction.save
       flash[:alert] = @reaction.errors.full_messages.to_sentence
     end 
