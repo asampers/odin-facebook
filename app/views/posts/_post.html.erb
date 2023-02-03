@@ -24,7 +24,7 @@
             data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon> Comment</button> 
       </div>
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <%= render "comments/comments", post: post, cached: true %>
+        <%= render "comments/comments", comments: post.comments, post: post, cached: true %>
       </div> 
 
       <div class="modal" id="collapseReaction<%= post.id %>">
