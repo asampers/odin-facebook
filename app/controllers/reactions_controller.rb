@@ -6,7 +6,7 @@ class ReactionsController < ApplicationController
     if !@reaction.save
       flash[:alert] = @reaction.errors.full_messages.to_sentence
     end 
-
+    
     notify(user, @reaction)
     redirect_to request.referrer   
   end
