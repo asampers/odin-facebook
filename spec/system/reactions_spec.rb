@@ -5,7 +5,7 @@ RSpec.describe "Reactions", type: :system do
   let!(:john) { create(:user, :john) }
   let!(:friendship) { create(:friendship, user_id: jane.id, friend_id: john.id, status: 'accepted') }
   let!(:jane_post) { FactoryBot.create(:post, user: jane) }
-   
+  
    before do
     driven_by(:rack_test)
   end

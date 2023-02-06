@@ -32,7 +32,6 @@
  
       
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <% post.comments %>
         <%= render "comments/comments", comments: post.comments, post: post, cached: true %>
       </div> 
 
