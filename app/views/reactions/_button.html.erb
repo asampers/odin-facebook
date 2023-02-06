@@ -1,6 +1,5 @@
 <% reaction = current_user.reactions.find_by(reactable: reactable) %>
 
-
 <% if reaction.nil? %>
   <%= button_to reactions_path, params: { reaction: { reactable_id: reactable.id, reactable_type: reactable.class}}, 
                   method: :post, class: " text-nowrap btn border border-primary" do %>
