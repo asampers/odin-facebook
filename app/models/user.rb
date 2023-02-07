@@ -39,11 +39,11 @@ class User < ApplicationRecord
   end
 
   def new_notifications
-    notifications.order('created_at DESC').reject(&:was_read)
+    notifications.includes(:notifiable).order('created_at DESC').reject(&:was_read)
   end
 
   def old_notifications
-    notifications.order('created_at DESC').select(&:was_read)
+    notifications.includes(:notifiable).order('created_at DESC').select(&:was_read)
   end
 
   def find_friendship(other_user)

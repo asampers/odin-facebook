@@ -63,8 +63,11 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers
 
+  #for Devise
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
@@ -75,4 +78,19 @@ Shoulda::Matchers.configure do |config|
 end
 
 Capybara.default_driver = :selenium_chromes
+
+#for OmniAuth
+OmniAuth.config.test_mode = true
+OmniAuth.config.logger = Rails.logger
+
+def mock_oauth_provider(provider)
+  OmniAuth.config.mock_auth[provider.to_sym] = OmniAuth::AuthHash.new(
+    provider: provider.to_s,
+    uid: '123',
+    info: {
+      email: 'test@test.com',
+      name: 'Tester Testy',
+    }
+  )
+end
 

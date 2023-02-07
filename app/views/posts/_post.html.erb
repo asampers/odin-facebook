@@ -15,7 +15,9 @@
           <%= turbo_frame_tag "post_#{post.id}_like_count" do %>
             <div class="d-inline-flex align-items-center">
               <a class="text-secondary like-count text-decoration-none ms-2 me-3" data-bs-toggle="modal" href="#collapseReaction<%= post.id%>" role="button"> 
+                <% cache do %>
                 <%= pluralize(post.reactions.size, "Like") unless post.reactions.nil? %>
+                <% end %>
               </a> 
               <%= render partial: "reactions/button", locals: { reactable: post } %> 
             </div> 
@@ -25,7 +27,9 @@
                 data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon>
             </button> 
             <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
+              <% cache do %>
               <%= pluralize(post.comments.size, "Comment") %>
+              <% end %>
             </a>
           </div>
       </div>
