@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  after_create :send_welcome_email
+
   attr_writer :login
 
   def login
@@ -58,6 +60,10 @@ class User < ApplicationRecord
 
   private
 
+  def send_welcome_email
+    WelcomeMailer.welcome_email(self).deliver_now
+  end
+
   def self.find_for_database_authentication(warden_condition)
     conditions = warden_condition.dup
     if(login = conditions.delete(:login))
@@ -65,5 +71,5 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
-  end    
+  end
 end
