@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
   let!(:jane) { create(:user, :jane) }
   let!(:post) { FactoryBot.create(:post, user: jane) }
   let!(:comment) { create(:comment, user: jane, post: post, parent_id: nil) }
-  let!(:nested_comment) { create(:comment, user: jane, post: post, parent_id: 1) }
+  let!(:nested_comment) { create(:comment, user: jane, post: post, parent: comment) }
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to belong_to(:post) }
@@ -20,6 +20,10 @@ RSpec.describe Comment, type: :model do
   describe '#message' do 
     it 'displays correctly for comment without parent' do
       expect(comment.message).to eq(' commented on your post.')
+    end
+
+    it 'displays correctly for comment with parent' do
+      expect(nested_comment.message).to eq(" replied to your comment: #{nested_comment.parent.body.truncate(85)}")
     end
   end
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
+  subject(:notification) { create(:notification, user: jane, notifiable: friendship) }
   let!(:jane) { create(:user, :jane) }
   let!(:john) { create(:user, :john) }
   let!(:friendship) { create(:friendship, user_id: jane.id, friend_id: john.id) }
@@ -15,6 +16,12 @@ RSpec.describe Notification, type: :model do
     accept.update_attribute(:status, 'accepted')
     jane.notifications.create(notifiable: accept)
   end
+
+  context 'validations' do 
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:notifiable) }
+    it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:notifiable_id, :notifiable_type) }
+  end 
 
   describe '#message' do 
     before do
@@ -38,6 +45,13 @@ RSpec.describe Notification, type: :model do
         result = notification.friend_request?
         expect(result).to be_truthy
       end
+    end
+  end
+
+  describe '#read' do
+    it 'updates the value of was_read to true' do
+      result = notification.read
+      expect(result).to be_truthy
     end
   end
 

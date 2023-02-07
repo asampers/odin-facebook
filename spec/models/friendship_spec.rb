@@ -15,4 +15,16 @@ RSpec.describe Friendship, type: :model do
     it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:friend_id) } 
   end 
+
+  describe '#message' do 
+    it 'displays correctly for a declined friendship' do
+      friendship.update_attribute(:status, 'declined')
+      expect(friendship.message).to eq(' unfriended you.')
+    end
+
+    it 'displays correctly for an accepted friendship' do
+      friendship.update_attribute(:status, 'accepted')
+      expect(friendship.message).to eq(" and you are now friends.")
+    end
+  end
 end

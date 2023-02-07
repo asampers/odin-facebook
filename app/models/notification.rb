@@ -11,7 +11,7 @@ class Notification < ApplicationRecord
   def friend_request?
     return unless notifiable_type == 'Friendship'
 
-    friendship = Friendship.find(notifiable_id)
+    friendship = Friendship.where(id:notifiable_id)
   end
 
   def read
