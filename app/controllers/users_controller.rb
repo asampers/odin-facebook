@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes({posts:[{reactions:[:user]}]}).find(params[:id])
     @accepted_friends = @user.friendships.includes(:user).accepted.map(&:user) + @user.friendships.includes(:friend).accepted.map(&:friend)
     @pending_friends = @user.friendships.includes(:user).pending.map(&:user) + @user.friendships.includes(:friend).pending.map(&:friend)
     @profile = Profile.find_by(user_id: @user.id)
