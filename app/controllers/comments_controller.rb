@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
+      
       notify(@post.user, @comment)
       redirect_to request.referrer
     else  
@@ -14,8 +15,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
+    @comment = @post.comments.includes(:notifications, {reactions:[:notifications]}).find(params[:id])
     @comment.destroy
+    @post.comments
     flash[:notice] = "Comment deleted."
     redirect_to request.referrer
   end
