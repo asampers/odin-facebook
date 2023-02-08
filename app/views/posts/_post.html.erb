@@ -26,11 +26,11 @@
             <button type="button" class="btn btn-primary text-nowrap ms-2 me-3" data-bs-toggle="modal" 
                 data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon>
             </button> 
+          <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>  
             <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
-              <% cache do %>
               <%= pluralize(post.comments.size, "Comment") %>
-              <% end %>
             </a>
+          <% end %>     
           </div>
       </div>
  

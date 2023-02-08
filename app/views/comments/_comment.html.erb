@@ -8,7 +8,11 @@
 </div>
 
 <div class="ms-4" id=<%= "nested#{comment.id}" %> >
-    <%= render comment.comments, post: post %>  
+  <% comment.comments.each do |nested_comment| %>  
+    <%= turbo_frame_tag nested_comment do %>
+      <%= render nested_comment, post: post %> 
+    <% end %> 
+  <% end %>    
 </div>
 
 <div class="modal" id="replyModal<%= comment.id %>">
@@ -19,7 +23,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <%= render "comments/form", post: post, parent: comment %>
+        <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>
+          <%= render "comments/form", post: post, parent: comment %>
+        <% end %>
       </div>
     </div>
   </div>

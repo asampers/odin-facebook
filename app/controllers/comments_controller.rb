@@ -17,9 +17,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @post.comments.includes(:notifications, {reactions:[:notifications]}).find(params[:id])
     @comment.destroy
-    @post.comments
-    flash[:notice] = "Comment deleted."
-    redirect_to request.referrer
+    
+    respond_to do |format|
+      format.html { redirect_to request.referrer, flash[:notice] = "Comment deleted." }
+      format.turbo_stream
+    end  
   end
 
   private
