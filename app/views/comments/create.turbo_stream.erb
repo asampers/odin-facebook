@@ -1,0 +1,12 @@
+<%= turbo_stream.update "post_#{@post.id}_comment_count" do %>
+  <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= @post.id%>" role="button"
+    aria> 
+    <%= pluralize(@post.comments.size, "Comment") %>
+  </a>
+<% end %> 
+
+<%= turbo_stream.update "collapseComment#{@post.id}" do %>
+  <div id="collapseComment<%= @post.id %>">
+        <%= render "comments/comments", comments: @post.comments.includes(:user), post: @post, cached: true %>
+      </div>
+<% end %>

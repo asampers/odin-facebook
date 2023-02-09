@@ -23,7 +23,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>
+        <%= turbo_frame_tag comment do %>  
           <%= render "comments/form", post: post, parent: comment %>
         <% end %>
       </div>

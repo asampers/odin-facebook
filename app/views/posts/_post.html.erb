@@ -66,7 +66,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <%= render "comments/form", post: post, parent: nil %>
+        <%= turbo_frame_tag @comment do %>
+          <%= render "comments/form", post: post, parent: nil %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -5,9 +5,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
-      
       notify(@post.user, @comment)
-      redirect_to request.referrer
+      respond_to do |format|
+        format.html { redirect_to request.referrer }
+        format.turbo_stream
+      end  
     else  
       flash[:alert] = "Unable to save comment."
       redirect_to request.referrer 
@@ -38,6 +40,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :parent_id)
+    params.require(:comment).permit(:body, :user_id, :post_id, :parent_id)
   end
 end
