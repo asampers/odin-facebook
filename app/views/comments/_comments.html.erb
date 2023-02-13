@@ -1,5 +1,5 @@
 <% comments.includes(:parent, {comments:[:parent]}, :user).each do |comment|%>
-  <div class="collapse show" id="collapseComment<% comment.id%>">
+  <div>
     <%= turbo_frame_tag comment do %>
       <% unless comment.parent %>
         <%= render 'comments/comment', comment: comment, post: post %>  
