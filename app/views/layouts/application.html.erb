@@ -49,5 +49,6 @@
 
     <%= query_diet_widget if Rails.env.development? %>
     <%= yield %>
+    <%= turbo_frame_tag "remote_modal" %>
   </body>
 </html>

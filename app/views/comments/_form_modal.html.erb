@@ -1,0 +1,15 @@
+<%= turbo_frame_tag :remote_modal do %>
+<div class="modal fade" data-controller="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New Comment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+          <%= render "comments/form", comment: @comment, post: @post, parent: nil %>
+      </div>
+    </div>
+  </div>
+</div> 
+<% end %>

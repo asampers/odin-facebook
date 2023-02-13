@@ -23,9 +23,10 @@
             </div> 
           <% end %>  
           <div class="d-inline-flex align-items-center">       
-            <button type="button" class="btn btn-primary text-nowrap ms-2 me-3" data-bs-toggle="modal" 
-                data-bs-target="#commentModal<%= post.id %>"><ion-icon name="chatbubbles"></ion-icon>
-            </button> 
+            <%= link_to new_post_comment_path(post), class:"btn btn-primary text-nowrap ms-2 me-3", "data-controller": "turbo" do %>
+              <ion-icon name="chatbubbles"></ion-icon>
+            <% end %>  
+
           <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>  
             <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= post.id%>" role="button"> 
               <%= pluralize(post.comments.size, "Comment") %>
@@ -57,18 +58,3 @@
   </div>
 </div>
 
-<div class="modal" id="commentModal<%= post.id %>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">New Comment</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <%= turbo_frame_tag @comment do %>
-          <%= render "comments/form", post: post, parent: nil %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div> 

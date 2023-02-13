@@ -22,10 +22,8 @@
         <h4 class="modal-title">Response</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">
-        <%= turbo_frame_tag comment do %>  
+      <div class="modal-body"> 
           <%= render "comments/form", post: post, parent: comment %>
-        <% end %>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
-<%= form_for :comment, url:post_comments_path(post.id) do |f| %>
+<%= form_with model: [ post, post.comments.build ]  do |f| %>
     <div class="mb-4">
     <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :post_id, value: post.id %>
     <%= f.hidden_field :parent_id, value: parent.id unless parent.nil? %>
     <%= f.text_area :body, rows: 4, placeholder: "Enter your text here...",
                       class: "form-control bg-light", required: "required" %>
