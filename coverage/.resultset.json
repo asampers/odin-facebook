@@ -173,6 +173,16 @@
           null
         ]
       },
+      "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/nanarama/repos/odin-facebook/app/models/friendship.rb": {
         "lines": [
           1,
@@ -227,16 +237,6 @@
           null,
           1,
           null,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
           null
         ]
       },
@@ -531,16 +531,8 @@
         "lines": [
           0,
           0,
-          null,
-          0,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           null,
@@ -550,10 +542,31 @@
           0,
           0,
           0,
-          null,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
           0,
           0,
           null,
@@ -633,6 +646,6 @@
         }
       }
     },
-    "timestamp": 1675876386
+    "timestamp": 1676399004
   }
 }

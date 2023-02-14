@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-08T11:13:06-06:00">2023-02-08T11:13:06-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-14T12:23:24-06:00">2023-02-14T12:23:24-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  63.64%
+  61.64%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.13
+         2.07
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>308</b> relevant lines,
+    <b>318</b> relevant lines,
     <span class="green"><b>196</b> lines covered</span> and
-    <span class="red"><b>112</b> lines missed. </span>
+    <span class="red"><b>122</b> lines missed. </span>
     (<span class="red">
-  63.64%
+  61.64%
 </span>
 )
   </div>
@@ -106,10 +106,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#bb5504c84ee5cfb7952fde1ffb4c5b783c443ffb" class="src_link" title="app/controllers/comments_controller.rb">app/controllers/comments_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">39</td>
-            <td class="cell--number">31</td>
+            <td class="cell--number">52</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">31</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -412,14 +412,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  40.37%
+  38.01%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.9
+         0.85
        </span>
     </span> hits/line
     )
@@ -432,11 +432,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>161</b> relevant lines,
+    <b>171</b> relevant lines,
     <span class="green"><b>65</b> lines covered</span> and
-    <span class="red"><b>96</b> lines missed. </span>
+    <span class="red"><b>106</b> lines missed. </span>
     (<span class="red">
-  40.37%
+  38.01%
 </span>
 )
   </div>
@@ -473,10 +473,10 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#bb5504c84ee5cfb7952fde1ffb4c5b783c443ffb" class="src_link" title="app/controllers/comments_controller.rb">app/controllers/comments_controller.rb</a></td>
             <td class="red strong cell--number t-file__coverage">0.00 %</td>
-            <td class="cell--number">39</td>
-            <td class="cell--number">31</td>
+            <td class="cell--number">52</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">31</td>
+            <td class="cell--number">41</td>
             <td class="cell--number">0.00</td>
             
           </tr>
@@ -1549,9 +1549,9 @@
     
 
     <div class="t-line-summary">
-      <b>31</b> relevant lines.
+      <b>41</b> relevant lines.
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>31</b> lines missed.</span>
+      <span class="red"><b>41</b> lines missed.</span>
     </div>
 
     
@@ -1579,29 +1579,29 @@
 
             
 
-            <code class="ruby">  before_action :set_post, only: %i[create destroy]</code>
+            <code class="ruby">  before_action :set_post, only: %i[new create destroy]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="3">
+          <li class="missed" data-hits="0" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">  before_action :set_parent, only: %i[new]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="4">
-            
-            
-
-            
-
-            <code class="ruby">  def create</code>
           </li>
         </div>
       
@@ -1612,29 +1612,29 @@
 
             
 
+            <code class="ruby">  def create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="6">
+            
+            
+
+            
+
             <code class="ruby">    @comment = @post.comments.build(comment_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="7">
-            
-            
-
-            
-
-            <code class="ruby">    if @comment.save</code>
           </li>
         </div>
       
@@ -1645,7 +1645,7 @@
 
             
 
-            <code class="ruby">      notify(@post.user, @comment)</code>
+            <code class="ruby">    if @comment.save</code>
           </li>
         </div>
       
@@ -1656,7 +1656,7 @@
 
             
 
-            <code class="ruby">      redirect_to request.referrer</code>
+            <code class="ruby">      notify(@post.user, @comment)</code>
           </li>
         </div>
       
@@ -1667,7 +1667,7 @@
 
             
 
-            <code class="ruby">    else  </code>
+            <code class="ruby">      respond_to do |format|</code>
           </li>
         </div>
       
@@ -1678,7 +1678,7 @@
 
             
 
-            <code class="ruby">      flash[:alert] = &quot;Unable to save comment.&quot;</code>
+            <code class="ruby">        format.html { redirect_to request.referrer }</code>
           </li>
         </div>
       
@@ -1689,7 +1689,7 @@
 
             
 
-            <code class="ruby">      redirect_to request.referrer </code>
+            <code class="ruby">        format.turbo_stream</code>
           </li>
         </div>
       
@@ -1700,7 +1700,7 @@
 
             
 
-            <code class="ruby">    end   </code>
+            <code class="ruby">      end  </code>
           </li>
         </div>
       
@@ -1711,18 +1711,18 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    else  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
+          <li class="missed" data-hits="0" data-linenumber="15">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      flash[:alert] = &quot;Unable to save comment.&quot;</code>
           </li>
         </div>
       
@@ -1733,7 +1733,7 @@
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">      redirect_to request.referrer </code>
           </li>
         </div>
       
@@ -1744,7 +1744,7 @@
 
             
 
-            <code class="ruby">    @comment = @post.comments.find(params[:id])</code>
+            <code class="ruby">    end   </code>
           </li>
         </div>
       
@@ -1755,18 +1755,18 @@
 
             
 
-            <code class="ruby">    @comment.destroy</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
             
 
-            <code class="ruby">    flash[:notice] = &quot;Comment deleted.&quot;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1777,7 +1777,7 @@
 
             
 
-            <code class="ruby">    redirect_to request.referrer</code>
+            <code class="ruby">  def destroy</code>
           </li>
         </div>
       
@@ -1788,40 +1788,40 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    @comment = @post.comments.includes(:notifications, {reactions:[:notifications]}).find(params[:id])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="missed" data-hits="0" data-linenumber="22">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    @comment.destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="missed" data-hits="0" data-linenumber="24">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -1832,7 +1832,7 @@
 
             
 
-            <code class="ruby">  def set_post</code>
+            <code class="ruby">      format.html { redirect_to request.referrer, flash[:notice] = &quot;Comment deleted.&quot; }</code>
           </li>
         </div>
       
@@ -1843,7 +1843,7 @@
 
             
 
-            <code class="ruby">    @post = Post.find(params[:post_id])</code>
+            <code class="ruby">      format.turbo_stream</code>
           </li>
         </div>
       
@@ -1854,29 +1854,29 @@
 
             
 
+            <code class="ruby">    end  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="28">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
-            
-            
-
-            
-
-            <code class="ruby">  def notify(user, comment)</code>
           </li>
         </div>
       
@@ -1887,23 +1887,12 @@
 
             
 
-            <code class="ruby">    user = comment.parent.user unless comment.parent.nil?</code>
+            <code class="ruby">  private</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="31">
-            
-            
-
-            
-
-            <code class="ruby">    return if current_user == user </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="31">
             
             
 
@@ -1914,13 +1903,24 @@
         </div>
       
         <div>
+          <li class="missed" data-hits="0" data-linenumber="32">
+            
+            
+
+            
+
+            <code class="ruby">  def set_post</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="missed" data-hits="0" data-linenumber="33">
             
             
 
             
 
-            <code class="ruby">    user.notifications.create(notifiable: comment)</code>
+            <code class="ruby">    @post = Post.find(params[:post_id])</code>
           </li>
         </div>
       
@@ -1953,7 +1953,7 @@
 
             
 
-            <code class="ruby">  def comment_params</code>
+            <code class="ruby">  def set_parent</code>
           </li>
         </div>
       
@@ -1964,12 +1964,34 @@
 
             
 
-            <code class="ruby">    params.require(:comment).permit(:body, :user_id, :parent_id)</code>
+            <code class="ruby">    return unless params.include?(:parent_id)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">    @parent = Comment.find(params[:parent_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="40">
             
             
 
@@ -1980,7 +2002,128 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">  def notify(user, comment)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">    user = comment.parent.user unless comment.parent.nil?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">    return if current_user == user </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">    user.notifications.create(notifiable: comment)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="47">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">  def comment_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby">    params.require(:comment).permit(:body, :user_id, :post_id, :parent_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="52">
             
             
 
@@ -4185,7 +4328,7 @@
 
             
 
-            <code class="ruby">    @user = User.find(params[:id])</code>
+            <code class="ruby">    @user = User.includes({posts:[{reactions:[:user]}]}).find(params[:id])</code>
           </li>
         </div>
       
@@ -4196,7 +4339,7 @@
 
             
 
-            <code class="ruby">    @accepted_friends = @user.friendships.includes(:user).accepted.map(&amp;:user) + @user.friendships.includes(:friend).accepted.map(&amp;:friend)</code>
+            <code class="ruby">    @accepted_friends = @user.friendships.accepted.map(&amp;:user) + @user.friendships.includes(:friend).accepted.map(&amp;:friend)</code>
           </li>
         </div>
       
@@ -4207,7 +4350,7 @@
 
             
 
-            <code class="ruby">    @pending_friends = @user.friendships.includes(:user).pending.map(&amp;:user) + @user.friendships.includes(:friend).pending.map(&amp;:friend)</code>
+            <code class="ruby">    @pending_friends = @user.friendships.pending.map(&amp;:user) + @user.friendships.includes(:friend).pending.map(&amp;:friend)</code>
           </li>
         </div>
       
@@ -5118,7 +5261,7 @@
 
             
 
-            <code class="ruby">  belongs_to :post</code>
+            <code class="ruby">  belongs_to :post, counter_cache: true</code>
           </li>
         </div>
       
