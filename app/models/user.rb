@@ -38,6 +38,11 @@ class User < ApplicationRecord
     self.friends.count - self.friendships.pending.count
   end
 
+  def new_notifications_size
+    count = self.notifications.where(was_read: false).size
+    return count if count > 0
+  end 
+
   def new_notifications
     notifications.includes(:notifiable).order('created_at DESC').reject(&:was_read)
   end

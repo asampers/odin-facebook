@@ -19,7 +19,7 @@
           <li class="nav-item">
             <%= link_to user_notifications_path(current_user.id), class: "nav-link text-light" do %> 
               Notifications
-              <span class="badge bg-danger rounded"><%= current_user.new_notifications.count if current_user.new_notifications.any? %></span>  
+              <span class="badge bg-danger rounded"><%= current_user.new_notifications_size %></span>  
             <% end %>
           </li>
           <li class="nav-item dropdown">
