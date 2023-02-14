@@ -23,8 +23,8 @@
             </div> 
           <% end %>  
           <div class="d-inline-flex align-items-center">       
-            <%= link_to new_post_comment_path(post), class:"btn btn-primary text-nowrap ms-2 me-3", "data-controller": "turbo", locals: { post: post, parent: nil } do %>
-              <ion-icon name="chatbubbles"></ion-icon>
+            <%= link_to new_post_comment_path(post), class:"btn btn-primary text-nowrap ms-2 me-3", "data-controller": "turbo" do %>
+              <ion-icon name="chatbubbles"></ion-icon> 
             <% end %>  
 
           <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>  

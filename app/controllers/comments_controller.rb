@@ -34,6 +34,8 @@ class CommentsController < ApplicationController
   end
 
   def set_parent
+    return unless params.include?(:parent_id)
+
     @parent = Comment.find(params[:parent_id])
   end
 
