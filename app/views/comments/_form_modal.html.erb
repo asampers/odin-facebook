@@ -1,7 +1,7 @@
-<% if :parent_id %>
-  <% @title = "New Comment" %>
+<% if params.include?(:parent_id) %>
+  <% @title = "Response" %>
 <% else %>
-  <% @title = "Response" %>  
+  <% @title = "New Comment" %>  
 <% end %>  
 
 <%= turbo_frame_tag :remote_modal do %>
