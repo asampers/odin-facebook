@@ -1,6 +1,6 @@
 <div class="ms-2 me-2 ps-3 pe-3">
   <hr class="border border-2 opacity-75">
-  <span><%= image_tag post.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
+  <span><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
   <%= link_to comment.user.username, comment.user %>: <%= comment.body %></span>
   <span class="btn btn-xs"><%= render partial: "reactions/button", locals: { reactable: comment } %></span> 
   <%= link_to "Reply", new_post_comment_path(post, :parent_id => comment), class:"text-secondary text-decoration-none", "data-controller": "turbo" %> 

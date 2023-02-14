@@ -14,11 +14,7 @@
       <div class="d-flex justify-content-between ">
           <%= turbo_frame_tag "post_#{post.id}_like_count" do %>
             <div class="d-inline-flex align-items-center">
-              <a class="text-secondary like-count text-decoration-none ms-2 me-3" data-bs-toggle="modal" href="#collapseReaction<%= post.id%>" role="button"> 
-                <% cache do %>
-                <%= pluralize(post.reactions.size, "Like") unless post.reactions.nil? %>
-                <% end %>
-              </a> 
+              <%= link_to "#{pluralize(post.reactions.size, "Like")}", post_reactions_path(post), class:"text-secondary like-count text-decoration-none ms-2 me-3", "data-controller": "turbo" %>   
               <%= render partial: "reactions/button", locals: { reactable: post } %> 
             </div> 
           <% end %>  
@@ -36,25 +32,8 @@
       </div>
 
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <%= render "comments/comments", comments: post.comments, post: post, cached: true %>
+        <%= render "comments/comments", comments: post.comments, post: post %>
       </div> 
-
-      <div class="modal" id="collapseReaction<%= post.id %>">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Liked by:</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-              <% post.reactions.each do |reaction| %>
-                <%= render "reactions/reactor", user: reaction.user  %>
-              <% end %>
-            </div>   
-          </div> 
-        </div>      
-      </div>   
     </div>
   </div>
 </div>
-

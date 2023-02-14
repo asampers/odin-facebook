@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   
   resources :posts do 
     resources :comments, only: %i[new create destroy]
+    get 'reactions', to: 'reactions#index'
   end  
 end

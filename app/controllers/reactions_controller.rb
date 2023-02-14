@@ -1,4 +1,6 @@
 class ReactionsController < ApplicationController
+  before_action :set_post, only: %i[index]
+  
   def create
     @reaction = current_user.reactions.create(reaction_params)
     user = @reaction.reactable.user 
@@ -19,6 +21,10 @@ class ReactionsController < ApplicationController
 
   private
 
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
+  
   def notify(user, reaction)
     return if current_user == user 
 
