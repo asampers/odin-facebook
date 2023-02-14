@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-          <%= render "comments/form", comment: @comment, post: @post, parent: nil %>
+          <%= render "comments/form", post: @post, parent: @parent %>
       </div>
     </div>
   </div>

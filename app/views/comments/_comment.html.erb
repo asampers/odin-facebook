@@ -3,7 +3,7 @@
   <span><%= image_tag post.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
   <%= link_to comment.user.username, comment.user %>: <%= comment.body %></span>
   <span class="btn btn-xs"><%= render partial: "reactions/button", locals: { reactable: comment } %></span> 
-  <a class="text-secondary text-decoration-none" data-bs-toggle="modal" href="#replyModal<%= comment.id %>">Reply</a> 
+  <%= link_to "Reply", new_post_comment_path(post, :parent_id => comment), class:"text-secondary text-decoration-none", "data-controller": "turbo" %> 
   <%= link_to "Delete", post_comment_path(post, comment), class:"text-secondary text-decoration-none", data: { turbo_method: :delete } if comment.user == current_user %>
 </div>
 
@@ -15,18 +15,5 @@
   <% end %>    
 </div>
 
-<div class="modal" id="replyModal<%= comment.id %>">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Response</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body"> 
-          <%= render "comments/form", post: post, parent: comment %>
-      </div>
-    </div>
-  </div>
-</div>
 
  

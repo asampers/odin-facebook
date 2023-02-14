@@ -10,6 +10,3 @@
         <%= render "comments/comments", comments: @post.comments.includes(:user), post: @post, cached: true %>
       </div>
 <% end %>
-
-<%= turbo_stream.update "commentModal#{@post.id}", "" %>
-<%#= turbo_stream.update "replyModal#{@comment.parent.id}", "" %>

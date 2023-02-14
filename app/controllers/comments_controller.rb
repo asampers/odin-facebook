@@ -1,9 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post, only: %i[new create destroy]
-
-  def new 
-    @comment = @post.comments.new
-  end 
+  before_action :set_parent, only: %i[new]
 
   def create
     @comment = @post.comments.build(comment_params)
@@ -34,6 +31,10 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def set_parent
+    @parent = Comment.find(params[:parent_id])
   end
 
   def notify(user, comment)
