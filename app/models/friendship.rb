@@ -14,5 +14,17 @@ class Friendship < ApplicationRecord
     else  
       " and you are now friends." 
     end 
-  end      
+  end 
+
+  def humanize_status
+    self.pending? ? "Pending" : "Friend"
+  end 
+
+  def status_styling
+    if self.pending?
+      "text-warning"
+    elsif self.accepted?
+      "text-success"
+    end   
+  end     
 end
