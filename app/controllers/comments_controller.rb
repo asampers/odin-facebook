@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     user = comment.parent.user unless comment.parent.nil?
     return if current_user == user 
 
-    user.notifications.create(notifiable: comment)
+    user.notifications.create(notifiable: comment, sender: comment.user)
   end
 
   def comment_params

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy 
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :sent_notifications, class_name: 'Notfication'
   has_many :reactions, dependent: :destroy
 
   has_many :friendships, ->(user) { FriendshipsQuery.both_ways(user_id: user.id) },
