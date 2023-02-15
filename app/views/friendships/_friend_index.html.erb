@@ -1,21 +1,17 @@
 <% if current_user == @user %>
-  <% @accepted_friends.each do |friend| %>
-    <% next if friend == @user %>
-    <%= render 'users/user', user: friend %>
-  <% end %> 
-  <h5 class="mt-1"> <%= "Pending Requests" if @pending_friends.any? %> </h5>
-  <% @pending_friends.each do |friend| %>
-    <% next if friend == @user %>
-    <%= render 'users/user', user: friend %>
-  <% end %>
-<% else %>   
-  <% @accepted_friends.each do |friend| %>
-    <% next if friend == @user %>
-    <%= render 'friendships/friend', user: friend %>
-  <% end %> 
-  <h5 class="mt-1"> <%= "Pending Requests" if @pending_friends.any? %> </h5>
-  <% @pending_friends.each do |friend| %>
-    <% next if friend == @user %>
-    <%= render 'friendships/friend', user: friend %>
-  <% end %>
-<% end %>  
+  <% @friends = 'users/user' %>
+<% else %>  
+  <% @friends = 'friendships/friend' %>
+<% end %> 
+
+<% @accepted_friends.each do |friend| %>
+  <% next if friend == @user %>
+  <%= render @friends, user: friend %>
+<% end %> 
+
+<h5 class="mt-1"> <%= "Pending Requests" if @pending_friends.any? %> </h5>
+
+<% @pending_friends.each do |friend| %>
+  <% next if friend == @user %>
+  <%= render @friends, user: friend %>
+<% end %>
