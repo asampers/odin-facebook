@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @accepted_friends ||= @user.friendships.includes(:user).accepted.map(&:user) + @user.friendships.includes(:friend).accepted.map(&:friend)
     @pending_friends ||= @user.friendships.includes(:user).pending.map(&:user) + @user.friendships.includes(:friend).pending.map(&:friend)
     @profile ||= Profile.find_by(user_id: @user.id)
+    @reactions = current_user.reactions
   end
 
   def notifications

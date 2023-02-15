@@ -28,7 +28,7 @@ class ReactionsController < ApplicationController
   def notify(user, reaction)
     return if current_user == user 
 
-    user.notifications.create(notifiable: reaction)
+    user.notifications.create(notifiable: reaction, sender: reaction.user)
   end
 
   def reaction_params
