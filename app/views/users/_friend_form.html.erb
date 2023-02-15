@@ -1,16 +1,16 @@
-<% if current_user.friends.include?(user) %>
-    <% @friendship = current_user.find_friendship(user.id) %>
-  
-    <% if @friendship.pending? &&  @friendship.friend == current_user%>
-      <div class="d-flex">
-        <%= button_to 'Accept', friendship_path(@friendship.id), method: :patch, class: "btn btn-success me-2" %>
-        <%= button_to 'Decline', friendship_path(@friendship.id), method: :delete, class: "btn btn-danger" %>
-      </div>
-    <% else @friendship.accepted? || @friendship.pending? && @friendship.user == current_user %>  
-      <div class="d-flex align-items-center <%= @friendship.status_styling %>"><%= "#{@friendship.humanize_status}"%>
-        <%= button_to 'Unfriend', friendship_path(@friendship.id), method: :delete, class: "btn btn-secondary ms-3" %>
-      </div> 
-    <% end %>
-<% elsif current_user != user %>   
-  <%= render 'add_friend', user: user %>
+<% @friendship ||= Friendship.where(friend: [current_user.id, user.id]).where(user:[current_user.id, user.id]).first %>
+
+<% if @friendship.nil? %>
+    <%= render 'add_friend', user: user %>
+<% else %>    
+  <% if @friendship.pending? &&  @friendship.friend == current_user%>
+    <div class="d-flex">
+      <%= button_to 'Accept', friendship_path(@friendship.id), method: :patch, class: "btn btn-success me-2" %>
+      <%= button_to 'Decline', friendship_path(@friendship.id), method: :delete, class: "btn btn-danger" %>
+    </div>
+  <% elsif @friendship.accepted? || @friendship.pending? && @friendship.user == current_user %>  
+    <div class="d-flex align-items-center <%= @friendship.status_styling %>"><%= "#{@friendship.humanize_status}"%>
+      <%= button_to 'Unfriend', friendship_path(@friendship.id), method: :delete, class: "btn btn-secondary ms-3" %>
+    </div> 
+  <% end %> 
 <% end %>

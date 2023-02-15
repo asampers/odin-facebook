@@ -1,4 +1,4 @@
-<% reaction = current_user.reactions.find_by(reactable: reactable) %>
+<% reaction = @reactions.where(reactable: reactable).take %>
 
 <% if reaction.nil? %>
   <%= button_to reactions_path, params: { reaction: { reactable_id: reactable.id, reactable_type: reactable.class}}, 

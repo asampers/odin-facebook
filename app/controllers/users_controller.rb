@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes({posts:[{reactions:[:user]}]}).find(params[:id])
-    @accepted_friends = @user.friendships.accepted.map(&:user) + @user.friendships.includes(:friend).accepted.map(&:friend)
-    @pending_friends = @user.friendships.pending.map(&:user) + @user.friendships.includes(:friend).pending.map(&:friend)
-    @profile = Profile.find_by(user_id: @user.id)
+    @user ||= User.find(params[:id])
+    @accepted_friends ||= @user.friendships.includes(:user).accepted.map(&:user) + @user.friendships.includes(:friend).accepted.map(&:friend)
+    @pending_friends ||= @user.friendships.includes(:user).pending.map(&:user) + @user.friendships.includes(:friend).pending.map(&:friend)
+    @profile ||= Profile.find_by(user_id: @user.id)
   end
 
   def notifications
-      @new = current_user.new_notifications
-      @old = current_user.old_notifications
+      @new ||= current_user.notifications.includes(:notifiable).order('created_at DESC').where(was_read: false)
+      @old ||= current_user.notifications.includes(:notifiable).order('created_at DESC').where(was_read: true)
       @new.each(&:read)
   end
 end

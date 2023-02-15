@@ -9,9 +9,7 @@ class Notification < ApplicationRecord
   end
 
   def friend_request?
-    return unless notifiable_type == 'Friendship'
-
-    friendship = Friendship.where(id:notifiable_id)
+    notifiable_type == 'Friendship'
   end
 
   def read
@@ -20,12 +18,12 @@ class Notification < ApplicationRecord
   end
 
   def sender 
-    recipient = User.find(user_id)
-    sender = notifiable_type.constantize.find(notifiable_id).user
+    @recipient ||= User.find(user_id)
+    @sender ||= notifiable_type.constantize.find(notifiable_id).user
 
-    if recipient == sender
+    if @recipient == @sender
       return Friendship.find(notifiable_id).friend
     end 
-    sender    
+    @sender    
   end
 end

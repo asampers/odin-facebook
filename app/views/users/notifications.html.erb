@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Notifications</h1>
-  <% unless @new.empty? %>
+  <% if @new %>
     <h3>New</h3>
     <ul class="list-group">
       <%= render @new %>
     </ul>
   <% end %>
   
-  <% unless @old.empty? %>
+  <% if @old %>
     <h3>Old</h3>
     <ul class="list-group">
       <%= render @old %>

@@ -1,9 +1,9 @@
 <div class="row m-3 text-center">
   <div class="profile-header rounded-top border border-3 border-bottom-0">  
-    <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
+    <% if @profile.nil? || @profile.full_name.empty? %> 
       <h1 class="display-1"> <%= @user.username %> </h1>
     <% else %>
-      <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
+      <h1 class="display-1"> <%= @profile.full_name %> </h1>
       <h3> <%= @user.username %> </h3>
     <% end %>
     <div class="d-flex justify-content-center align-content-center">
@@ -52,7 +52,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
       <% end %>
-      <%= render @user.profile || "profiles/empty" %>
+      <%= render @profile || "profiles/empty" %>
     <% end %>
   </div>
 </div>

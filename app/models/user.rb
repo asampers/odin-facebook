@@ -43,14 +43,6 @@ class User < ApplicationRecord
     return count if count > 0
   end 
 
-  def new_notifications
-    notifications.includes(:notifiable).order('created_at DESC').reject(&:was_read)
-  end
-
-  def old_notifications
-    notifications.includes(:notifiable).order('created_at DESC').select(&:was_read)
-  end
-
   def find_friendship(other_user)
     self.friendships.find_by(friend: other_user) || self.friendships.find_by(user: other_user)
   end 
