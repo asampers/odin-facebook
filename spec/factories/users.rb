@@ -3,6 +3,7 @@ FactoryBot.define do
     username { 'User' }
     email { 'email@email.com' }
     password { 'password' }
+    id { 1 }
   
   
     trait :faker do 
