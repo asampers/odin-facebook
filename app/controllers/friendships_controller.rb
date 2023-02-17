@@ -45,7 +45,8 @@ class FriendshipsController < ApplicationController
   end 
 
   def notify(user, friendship)
-    user.notifications.create(notifiable: friendship, sender: select_friend(friendship))
+    sender = friendship.user == user ? friendship.friend : friendship.user
+    user.notifications.create(notifiable: friendship, sender: sender )
   end
 
   def friendship_params

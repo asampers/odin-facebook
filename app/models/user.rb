@@ -31,10 +31,6 @@ class User < ApplicationRecord
     @login || username || email
   end 
 
-  def received_request?(other_user)
-    inverse_friends.include?(other_user)
-  end 
-
   def active_friend_count
     self.friends.count - self.friendships.pending.count
   end

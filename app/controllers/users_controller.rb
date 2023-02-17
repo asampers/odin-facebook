@@ -14,6 +14,5 @@ class UsersController < ApplicationController
   def notifications
       @new ||= current_user.notifications.includes(:notifiable).order('created_at DESC').where(was_read: false)
       @old ||= current_user.notifications.includes(:notifiable).order('created_at DESC').where(was_read: true)
-      @new.each(&:read)
   end
 end

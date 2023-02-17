@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).order(created_at: :desc)
-    @reactions = current_user.reactions
   end
 
   def show

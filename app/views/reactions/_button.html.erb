@@ -1,3 +1,4 @@
+<% @reactions ||= current_user.reactions %>
 <% reaction = @reactions.where(reactable: reactable).take %>
 
 <% if reaction.nil? %>

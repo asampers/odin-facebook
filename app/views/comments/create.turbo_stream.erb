@@ -7,6 +7,6 @@
 
 <%= turbo_stream.update "collapseComment#{@post.id}" do %>
   <div id="collapseComment<%= @post.id %>">
-        <%= render "comments/comments", comments: @post.comments.includes(:user), post: @post, cached: true %>
+        <%= render "comments/comments", comments: @post.comments.includes(:user), post: @post %>
       </div>
 <% end %>
