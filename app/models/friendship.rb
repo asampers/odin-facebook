@@ -26,5 +26,13 @@ class Friendship < ApplicationRecord
     elsif self.accepted?
       "text-success"
     end   
-  end     
+  end 
+
+  def needs_user_response?(user_id)
+    self.friend_id == user_id && self.pending?
+  end
+
+  def can_be_broken?(user_id)
+    self.accepted? || self.pending? && self.user_id == user_id
+  end    
 end

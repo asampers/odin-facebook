@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Notifications</h1>
-  <% if @new %>
+  <% if @new.any? %>
     <h3>New</h3>
     <ul class="list-group">
       <%= render @new.includes(:sender) %>
     </ul>
   <% end %>
   
-  <% if @old %>
+  <% if @old.any? %>
     <h3>Old</h3>
     <ul class="list-group">
       <%= render @old.includes(:sender) %>
