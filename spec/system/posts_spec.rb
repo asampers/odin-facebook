@@ -15,7 +15,7 @@ RSpec.describe "Posts", type: :system do
     jane.reload
     post = jane.posts.last
 
-    visit post_path(post)
+    visit root_path
     result = post.body == 'Test post'
     expect(page).to have_content('Test post')
     expect(result).to be_truthy
@@ -27,7 +27,6 @@ RSpec.describe "Posts", type: :system do
     fill_in "What's on your mind?", with: ''
     click_on 'Post'
     
-    expect(@post.errors).to eq(1)
-    expect(page).to have_content("Body can't be black.")
+    expect(page).to have_content("Body can't be blank")
   end 
 end

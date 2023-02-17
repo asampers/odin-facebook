@@ -21,6 +21,14 @@ RSpec.describe "Friendships", type: :system do
     expect(page).to have_content("Unfriend")
   end
 
+  scenario "john rejects jane's friend request" do
+    login_as(john)
+    visit '/users'
+    click_on("Decline")
+    expect(page).to have_content("You are no longer friends with Jane")
+    expect(page).to have_selector(:link_or_button, "Add Friend")
+  end
+
   scenario "jane sends friend request to user" do 
     login_as(jane)
     visit '/users'
