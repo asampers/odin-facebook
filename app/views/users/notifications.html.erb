@@ -4,7 +4,6 @@
     <h3>New</h3>
     <ul class="list-group">
       <%= render @new.includes(:sender) %>
-      <% @new.read %>
     </ul>
   <% end %>
   
@@ -12,6 +11,7 @@
     <h3>Old</h3>
     <ul class="list-group">
       <%= render @old.includes(:sender) %>
+      <% @new.each(&:read) %>
     </ul>
   <% end %>
 </div>
