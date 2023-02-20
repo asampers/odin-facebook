@@ -1,0 +1,11 @@
+<% flash.each do |flash_type, message| %>
+<% if flash_type == 'notice' %>
+  <% @styling = 'alert-success' %>
+<% else %>
+  <% @styling = 'alert-danger' %>
+<% end %>    
+  <div class="alert <%= @styling %> alert-dismissable">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <%= message %>
+  </div>
+<% end %>

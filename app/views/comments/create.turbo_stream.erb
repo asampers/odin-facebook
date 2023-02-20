@@ -7,6 +7,6 @@
 
 <%= turbo_stream.update "collapseComment#{@post.id}" do %>
   <div id="collapseComment<%= @post.id %>">
-        <%= render "comments/comments", comments: @post.comments.includes(:user), post: @post %>
+        <%= render "comments/comments", comments: @post.comments.includes(:user).order(created_at: :asc), post: @post %>
       </div>
 <% end %>

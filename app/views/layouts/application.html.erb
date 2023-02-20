@@ -40,12 +40,9 @@
   <body>
     <%= render 'layouts/header' %>
     
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <div id="flash" class="flash">
+      <%= render "layouts/flash" %>
+    </div>
 
     <%= query_diet_widget if Rails.env.development? %>
     <%= yield %>

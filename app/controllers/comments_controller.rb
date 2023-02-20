@@ -10,10 +10,9 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to request.referrer }
         format.turbo_stream
-      end  
-    else  
-      flash[:alert] = "Unable to save comment."
-      redirect_to request.referrer 
+      end 
+    else 
+      render :new, status: :unprocessable_entity  
     end   
   end
 
@@ -22,7 +21,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     
     respond_to do |format|
-      format.html { redirect_to request.referrer, flash[:notice] = "Comment deleted." }
+      format.html { redirect_to request.referrer }
       format.turbo_stream
     end  
   end

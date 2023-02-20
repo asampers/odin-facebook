@@ -32,7 +32,7 @@
       </div>
 
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <%= render "comments/comments", comments: post.comments, post: post %>
+        <%= render "comments/comments", comments: post.comments.order(created_at: :asc), post: post %>
       </div> 
     </div>
   </div>
