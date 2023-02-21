@@ -31,7 +31,12 @@ RSpec.describe "Reactions", type: :system do
 
     it 'shows the Unlike button' do
       expect(page).to have_button 'Unlike'
-    end  
+    end
+
+    it 'displays the list of users who have liked' do
+      click_on '1 Like'
+      expect(page).to have_content 'Liked by:'
+    end 
   end 
 
   context "john unlikes jane's post" do 

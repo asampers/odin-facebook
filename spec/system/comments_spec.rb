@@ -33,7 +33,7 @@ RSpec.describe "Comments", type: :system do
     fill_in "Enter your text here...", with: ''
     click_on 'Post'
     
-    expect(page).to have_content('Unable to save comment.')
+    expect(page).to have_content("Body can't be blank")
     expect(jane_post.comments.count).to eq(0)
   end
 
