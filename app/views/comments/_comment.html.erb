@@ -2,7 +2,11 @@
   <hr class="border border-2 opacity-75">
   <span><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
   <%= link_to comment.user.username, comment.user %>: <%= comment.body %></span>
-  <span class="btn btn-xs"><%= render partial: "reactions/button", locals: { reactable: comment } %></span> 
+  <span class="btn btn-xs">
+    <%= turbo_frame_tag "comment_#{comment.id}_like_count" do %>
+      <%= render partial: "reactions/button", locals: { reactable: comment } %>
+    <% end %>
+  </span> 
   <%= link_to "Reply", new_post_comment_path(post, :parent_id => comment), class:"text-secondary text-decoration-none", "data-controller": "turbo" %> 
   <%= link_to "Delete", post_comment_path(post, comment), class:"text-secondary text-decoration-none", data: { turbo_method: :delete } if comment.user == current_user %>
 </div>

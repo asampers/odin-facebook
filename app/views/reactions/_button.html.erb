@@ -1,5 +1,4 @@
-<% @reactions ||= current_user.reactions %>
-<% reaction = @reactions.where(reactable: reactable).take %>
+<% reaction = current_user.reactions.where(reactable:reactable).take %>
 
 <% if reaction.nil? %>
   <%= button_to reactions_path, params: { reaction: { reactable_id: reactable.id, reactable_type: reactable.class}}, 
@@ -7,7 +6,7 @@
                   <ion-icon name="thumbs-up" class=" text-primary"></ion-icon>
                   <%= "Like" if reactable.class == Post %>  
                   <%= reactable.reactions.size if reactable.class == Comment %> 
-  <% end %>                           
+  <% end %>                            
 <% else %>
   <%= button_to reaction_path(reaction), method: :delete,
                   class: " text-nowrap btn btn-primary" do %>

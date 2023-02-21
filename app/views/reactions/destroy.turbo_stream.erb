@@ -1,0 +1,8 @@
+<%= turbo_stream.update "#{@reaction.reactable_type.downcase}_#{@reaction.reactable_id}_like_count" do %>
+  <% if @reaction.reactable_type == 'Post' %>
+  <div class="d-inline-flex align-items-center">
+    <%= link_to "#{pluralize(@reaction.reactable.reactions.size, "Like")}", post_reactions_path(@reaction.reactable), class:"text-secondary like-count text-decoration-none ms-2 me-3", "data-controller": "turbo" %>
+  <% end %>  
+    <%= render partial: "reactions/button", locals: { reactable: @reaction.reactable } %> 
+  </div> 
+<% end %> 
