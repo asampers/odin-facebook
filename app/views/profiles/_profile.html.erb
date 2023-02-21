@@ -1,9 +1,10 @@
+<turbo-frame id="about">
 <p><b>Name: </b><%= profile.full_name %> </p>
 <p><b>Age: </b><%= profile.age %> </p>
 <p><b>Location: </b><%= profile.location %> </p>
 <p><b>Bio: </b><%= profile.bio %> </p>
-<p><b>Joined: </b><%= @user.created_at.strftime("%b %-d, %Y") %> </p>
-
-<%= link_to "Edit", user_profile_path(@user, profile), class: "btn btn-primary float-center" if @user == current_user %>
+<p><b>Joined: </b><%= profile.user.created_at.strftime("%b %-d, %Y") %> </p>
 
 
+<%= link_to "Edit", user_profile_path(profile.user, profile), class: "btn btn-primary float-center" if profile.user == current_user %>
+</turbo-frame>  

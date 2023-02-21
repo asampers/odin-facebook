@@ -46,9 +46,11 @@
     <% end %>    
   </div>
   <div class="tab-pane container fade" id="about"> 
+    <%= turbo_frame_tag "profile" do %>
     <%= turbo_frame_tag "about" do %>
       <%= render "layouts/flash" %>
       <%= render @profile || "profiles/empty" %>
+      <% end %>  
     <% end %>
   </div>
 </div>

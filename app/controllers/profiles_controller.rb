@@ -21,8 +21,10 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      flash[:notice] = "Successfully updated your profile."
-      redirect_to user_path(current_user)
+      respond_to do |format|
+        format.html { redirect_to request.referrer, notice: "Successfully updated your profile." }
+        format.turbo_stream { flash.now[:notice] = "Successfully updated your profile." } 
+      end 
     else 
       flash[:alert] = "Unable to update profile."
       render :edit, status: :unprocessable_entity 
