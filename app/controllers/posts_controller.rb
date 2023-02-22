@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).by_recently_created
+    @post = current_user.posts.build
   end
 
   def show
