@@ -11,7 +11,8 @@
     <h3>Old</h3>
     <ul class="list-group">
       <%= render @old.includes(:sender) %>
-      <% @new.each(&:read) %>
     </ul>
   <% end %>
+  
+  <% @new.each(&:read) %>
 </div>

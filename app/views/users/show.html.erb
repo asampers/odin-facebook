@@ -1,9 +1,9 @@
 <div class="row m-3 text-center">
   <div class="profile-header rounded-top border border-3 border-bottom-0">  
-    <% if @profile.nil? || @profile.full_name.empty? %> 
+    <% if @user.profile.nil? || @user.profile.full_name.empty? %> 
       <h1 class="display-1"> <%= @user.username %> </h1>
     <% else %>
-      <h1 class="display-1"> <%= @profile.full_name %> </h1>
+      <h1 class="display-1"> <%= @user.profile.full_name %> </h1>
       <h3> <%= @user.username %> </h3>
     <% end %>
     <div class="d-flex justify-content-center align-content-center">
@@ -33,7 +33,7 @@
 <div class="tab-content">
   <div class="tab-pane container active" id="posts">
     <% if @user.posts.any? %>
-      <%= render @user.posts %>
+      <%= render @user.posts.by_recently_created %>
     <% else %>
       <p><em>There are currently no posts.</em>
     <% end %>  
@@ -42,14 +42,14 @@
     <% if @user.friends.any? %>
       <%= render 'friendships/friend_index', user: @user %>  
     <% else %>
-      <%= render "no_friends", user: @user %> 
+      <%= render "no_friends" %> 
     <% end %>    
   </div>
   <div class="tab-pane container fade" id="about"> 
     <%= turbo_frame_tag "profile" do %>
     <%= turbo_frame_tag "about" do %>
       <%= render "layouts/flash" %>
-      <%= render @profile || "profiles/empty" %>
+      <%= render @user.profile || "profiles/empty" %>
       <% end %>  
     <% end %>
   </div>
