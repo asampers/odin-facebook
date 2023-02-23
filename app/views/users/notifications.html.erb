@@ -1,18 +1,18 @@
-<div class="container">
-  <h1>Notifications</h1>
+<div class="container mt-2">
+  <h1 class="text-center">Notifications</h1>
   <% unless @new.empty? %>
-    <h3>New</h3>
+    <h3 class="text-decoration-underline">New</h3>
     <ul class="list-group">
-      <%= render @new.includes(:sender) %>
+      <%= render @new.includes(:sender, :notifiable) %>
     </ul>
   <% end %>
   
   <% unless @old.empty? %>
-    <h3>Old</h3>
+    <h3 class="text-decoration-underline">Old</h3>
     <ul class="list-group">
-      <%= render @old.includes(:sender) %>
+      <%= render @old.includes(:sender, :notifiable) %>
     </ul>
   <% end %>
-  
+
   <% @new.each(&:read) %>
 </div>

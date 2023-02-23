@@ -11,9 +11,9 @@ class Comment < ApplicationRecord
 
   def message
     if parent_id.nil?
-      " commented on your post."
+      " commented '<em>#{body.truncate(85)}</em>' on your post."
     else 
-      " replied to your comment: #{parent.body.truncate(85)}"  
+      " replied '<em>#{body.truncate(85)}</em>' to your comment."  
     end 
   end     
 end

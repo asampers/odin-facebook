@@ -2,9 +2,9 @@
   <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
   <%= link_to notification.sender.username, notification.sender %>
         <span>
-          <%= notification.message %>
+          <%= raw notification.message %>
         </span>
-    <% if notification.friend_request? %>
+    <% if notification.friend_request? && notification.notifiable.pending? %>
       <span class="float-end"><%= render 'friend_form', :user => notification.sender %></span>
     <% end %>
 </li>
