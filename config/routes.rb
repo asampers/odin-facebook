@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/destroy'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root "posts#index"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
     get :notifications
   end
   
+  resources :notifications, only: %i[destroy]
   resources :posts do 
     resources :comments, only: %i[new create destroy]
     get 'reactions', to: 'reactions#index'

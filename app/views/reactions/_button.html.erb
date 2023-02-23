@@ -2,16 +2,16 @@
 
 <% if reaction.nil? %>
   <%= button_to reactions_path, params: { reaction: { reactable_id: reactable.id, reactable_type: reactable.class}}, 
-                  method: :post, class: " text-nowrap btn border border-primary" do %>
+                  method: :post, class: "text-nowrap btn border border-primary" do %>
                   <ion-icon name="thumbs-up" class=" text-primary"></ion-icon>
                   <%= "Like" if reactable.class == Post %>  
-                  <%= reactable.reactions.size if reactable.class == Comment %> 
+                  <%= reactable.reactions.size if reactable.class == Comment %>
   <% end %>                            
 <% else %>
   <%= button_to reaction_path(reaction), method: :delete,
-                  class: " text-nowrap btn btn-primary" do %>
+                  class: "text-nowrap btn btn-primary" do %>
                   <ion-icon name="thumbs-up"></ion-icon> 
-                  <%= "Unlike" if reactable.class == Post %> 
+                  <%= "Unlike" if reactable.class == Post %>
                   <%= reactable.reactions.size if reactable.class == Comment %>
   <% end %>                 
 <% end %>   

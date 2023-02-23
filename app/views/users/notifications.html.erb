@@ -1,5 +1,15 @@
 <div class="container mt-2">
   <h1 class="text-center">Notifications</h1>
+  <div class="dropdown dropdown-menu-end float-end">
+    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+      Manage Notifications
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Delete All <ion-icon name="trash" class="align-middle"></ion-icon></a></li>
+      <li><a class="dropdown-item" href="#notification-manager" data-bs-toggle="collapse">Delete Some
+        <ion-icon name="checkbox-outline" class="align-middle"></ion-icon></a></li>
+    </ul>
+  </div>
   <% unless @new.empty? %>
     <h3 class="text-decoration-underline">New</h3>
     <ul class="list-group">
