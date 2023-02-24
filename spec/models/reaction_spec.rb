@@ -16,11 +16,11 @@ RSpec.describe Reaction, type: :model do
   describe "#message" do
     context 'inserts the correct reaction_type' do
       it 'is comment for comments' do 
-        expect(comment_reaction.message).to eq(' liked your comment.')
+        expect(comment_reaction.message).to eq(" liked your '<em>#{comment_reaction.reactable.body.truncate(85)}</em>' #{comment_reaction.reactable_type.downcase}.")
       end 
 
       it 'is post for posts' do
-        expect(post_reaction.message).to eq(' liked your post.')
+        expect(post_reaction.message).to eq(" liked your '<em>#{post_reaction.reactable.body.truncate(85)}</em>' #{post_reaction.reactable_type.downcase}.")
       end  
     end
   end

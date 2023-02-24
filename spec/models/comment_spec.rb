@@ -19,11 +19,11 @@ RSpec.describe Comment, type: :model do
 
   describe '#message' do 
     it 'displays correctly for comment without parent' do
-      expect(comment.message).to eq(' commented on your post.')
+      expect(comment.message).to eq(" commented '<em>#{comment.body.truncate(85)}</em>' on your post.")
     end
 
     it 'displays correctly for comment with parent' do
-      expect(nested_comment.message).to eq(" replied to your comment: #{nested_comment.parent.body.truncate(85)}")
+      expect(nested_comment.message).to eq(" replied '<em>#{comment.body.truncate(85)}</em>' to your comment.")
     end
   end
 end
