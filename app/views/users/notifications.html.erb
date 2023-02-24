@@ -8,7 +8,11 @@
       Manage Notifications
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Delete All <ion-icon name="trash" class="align-middle"></ion-icon></a></li>
+      <li><%= link_to destroy_multiple_path(), class:"dropdown-item", data: { turbo_method: :get, turbo_confirm: "Please confirm you want to delete notifications." } do %>
+        Delete All
+        <ion-icon name="trash" class:"align-middle"></ion-icon>
+        <% end %>
+      </li>
       <li><a class="dropdown-item text-toggle" href="#notification-manager" data-bs-toggle="collapse" aria-expanded="false">
         <span class="text-collapsed">Delete Some</span><span class="text-expanded">All Done</span>
         <ion-icon name="checkbox-outline" class="align-middle"></ion-icon></a></li>
