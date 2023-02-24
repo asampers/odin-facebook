@@ -2,7 +2,10 @@ class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
     @notification.destroy
-
-    redirect_to request.referrer 
+    
+    respond_to do |format|
+      format.html { redirect_to request.referrer }
+      format.turbo_stream
+    end  
   end
 end

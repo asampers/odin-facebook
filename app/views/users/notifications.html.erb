@@ -6,7 +6,8 @@
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Delete All <ion-icon name="trash" class="align-middle"></ion-icon></a></li>
-      <li><a class="dropdown-item" href="#notification-manager" data-bs-toggle="collapse">Delete Some
+      <li><a class="dropdown-item text-toggle" href="#notification-manager" data-bs-toggle="collapse" aria-expanded="false">
+        <span class="text-collapsed">Delete Some</span><span class="text-expanded">All Done</span>
         <ion-icon name="checkbox-outline" class="align-middle"></ion-icon></a></li>
     </ul>
   </div>
@@ -20,7 +21,7 @@
   <% unless @old.empty? %>
     <h3 class="text-decoration-underline">Old</h3>
     <ul class="list-group">
-      <%= render @old.includes(:sender, :notifiable) %>
+      <%= render @old.includes(:sender, :notifiable) %> 
     </ul>
   <% end %>
 

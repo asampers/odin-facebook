@@ -1,3 +1,4 @@
+<%= turbo_frame_tag notification do %>
 <li class="list-group-item list-group-item-action">
   <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
   <%= link_to notification.sender.username, notification.sender %>
@@ -14,3 +15,4 @@
   <% end %>
   <span>  
 </li>
+<% end %>
