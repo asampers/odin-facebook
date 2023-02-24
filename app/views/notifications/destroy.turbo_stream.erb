@@ -1,5 +1,7 @@
 <%= turbo_stream.remove @notification %>
 
 <% if current_user.notifications.none? %>
-  <%= render 'notifications/empty' %>
+  <%= turbo_stream.update 'notifications-index' do %>
+    <%= render 'notifications/empty' %>
+  <% end %>  
 <% end %>

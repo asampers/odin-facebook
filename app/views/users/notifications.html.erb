@@ -1,9 +1,9 @@
 <div class="container mt-2">
   <h1 class="text-center">Notifications</h1>
-
+<%= turbo_frame_tag 'notifications-index' do %>
   <%= render 'notifications/empty' if current_user.notifications.none?%>
 
-  <div class="dropdown dropdown-menu-end float-end">
+  <div class="dropdown dropdown-menu-end float-end notification-manager">
     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
       Manage Notifications
     </button>
@@ -14,23 +14,21 @@
         <ion-icon name="checkbox-outline" class="align-middle"></ion-icon></a></li>
     </ul>
   </div>
-  <%= turbo_frame_tag 'new-notifications' do %>
     <% unless @new.empty? %>
       <h3 class="text-decoration-underline new-heading">New</h3>
       <ul class="list-group">
         <%= render @new.includes(:sender, :notifiable) %>
       </ul>
     <% end %>
-  <% end %>
   
-  <%= turbo_frame_tag 'old-notifications' do %>
     <% unless @old.empty? %>
       <h3 class="text-decoration-underline old-heading">Old</h3>
       <ul class="list-group">
         <%= render @old.includes(:sender, :notifiable) %> 
       </ul>
     <% end %>
-  <% end %>
+
 
   <% @new.each(&:read) %>
 </div>
+<% end %>
