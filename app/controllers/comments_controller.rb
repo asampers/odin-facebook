@@ -16,10 +16,7 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end 
     else 
-      respond_to do |format|
-        format.html { render :new, status: :unprocessable_entity }
-        format.turbo_stream  
-      end  
+      render :new, status: :unprocessable_entity 
     end   
   end
 

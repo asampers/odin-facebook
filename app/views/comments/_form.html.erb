@@ -7,7 +7,7 @@
     <%= f.hidden_field :post_id, value: post.id %>
     <%= f.hidden_field :parent_id, value: parent.id unless parent.nil? %>
     <%= f.text_area :body, rows: 4, placeholder: "Enter your text here...",
-                      class: "form-control bg-light", required: "required" %>
+                      class: "form-control bg-light" %>
     </div>   
     <div class="modal-footer pb-0">
       <button type="button" class="btn btn-secondary ms-3" data-bs-dismiss="modal">Close</button>
