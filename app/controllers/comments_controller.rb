@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   before_action :set_post, only: %i[new create destroy]
   before_action :set_parent, only: %i[new]
 
+  def new
+    @comment = @post.comments.build
+  end
+
   def create
     @comment = @post.comments.build(comment_params)
 
@@ -12,7 +16,10 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end 
     else 
-      render :new
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream  
+      end  
     end   
   end
 
