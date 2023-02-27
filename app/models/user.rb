@@ -40,10 +40,6 @@ class User < ApplicationRecord
     return count if count > 0
   end 
 
-  def find_friendship(other_user)
-    self.friendships.find_by(friend: other_user) || self.friendships.find_by(user: other_user)
-  end 
-
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email

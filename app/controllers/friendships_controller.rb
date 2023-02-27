@@ -1,9 +1,5 @@
 class FriendshipsController < ApplicationController
 
-  def new
-    @friendship = Friendship.new
-  end
-
   def create
     @friendship = current_user.friendships.build(friendship_params)
     @user = User.find(@friendship.friend.id)

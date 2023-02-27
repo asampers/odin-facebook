@@ -11,6 +11,8 @@ RSpec.describe "Notifications", type: :system do
 
   scenario "user has no notifications" do  
     login_as(john)
+    visit root_path
+    expect(john.new_notifications_size).to eq(nil)
     visit "users/#{john.id}/notifications"
     expect(page).to have_content("You have no notifications!")
   end

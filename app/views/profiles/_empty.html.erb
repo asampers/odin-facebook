@@ -3,7 +3,7 @@
     <h3 class="text-secondary">Feel free to add your profile info.</h3>
     <%= form_for :profile, url: user_profiles_path(@user)  do |f| %>
       <%= render 'profiles/form', f: f %> 
-    <% end %>  
+    <% end %> 
   </div>
 <% else %>
   <p><b>Name: </b> </p> 

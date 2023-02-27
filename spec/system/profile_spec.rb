@@ -5,16 +5,12 @@ RSpec.describe "Profile", type: :system do
   let!(:john) { create(:user, :john) }
   let!(:john_profile) { FactoryBot.create(:profile, user: john)}
 
-   before do
-    driven_by(:rack_test)
-  end
-
   scenario 'user makes their profile' do 
     login_as(jane)
     visit user_path(jane)
     click_on 'About'
     expect(page).to have_content("Feel free to add your profile info.")
-    expect(page).to have_content("Full name Location Age Bio")
+    expect(page).to have_content("Full name\nLocation\nAge\nBio")
 
     fill_in "Full name", with: "Jane"
     fill_in "Location", with: "Here"
@@ -32,15 +28,15 @@ RSpec.describe "Profile", type: :system do
     login_as(john)
     visit user_path(john)
     click_on 'About'
-    expect(page).to have_content("Name: John\nAge: 25\nLocation: Location\nBio: There's nothing to tell.")
+    expect(page).to have_content("Name: John\nAge: 25\nLocation: New York\nBio: There's nothing to tell.")
 
     click_on "Edit"
     fill_in "Location", with: "California"
     fill_in "Bio", with: "So many secrets"
     click_button 'Save'
-    john.profile.reload
 
     expect(page).to have_content('Successfully updated your profile.')
+    john.profile.reload
     expect(john.profile.location).to eq("California")
     expect(john.profile.bio).to eq("So many secrets")
   end

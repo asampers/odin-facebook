@@ -15,12 +15,19 @@ RSpec.describe "Comments", type: :system do
 
   scenario "john comments on jane's post" do 
     john_comments()
-    
     click_on '1 Comment'
     
     expect(page).to have_content('Great post, Jane!')
     expect(jane_post.comments.count).to eq(1)
   end 
+
+  scenario "john deletes his comment on jane's post" do 
+    john_comments()
+    click_on '1 Comment'
+    click_on 'Delete'
+    expect(page).to have_content('0 Comments')
+    expect(jane_post.comments.count).to eq(0)
+  end
 
   scenario "john fails to comment on jane's post" do 
     login_as(john)

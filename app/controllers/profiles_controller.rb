@@ -1,10 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show update]
 
-  def new 
-    @profile = current_user.build_profile
-  end
-
   def create 
     @profile = current_user.build_profile(profile_params)
 
