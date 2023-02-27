@@ -11,9 +11,6 @@ class ProfilesController < ApplicationController
     if @profile.save
       flash[:notice] = "Successfully saved your profile."
       redirect_to user_path(current_user)
-    else  
-      flash[:alert] = "Unable to save profile."
-      redirect_to user_path(current_user) 
     end   
   end
 
@@ -25,9 +22,6 @@ class ProfilesController < ApplicationController
         format.html { redirect_to request.referrer, notice: "Successfully updated your profile." }
         format.turbo_stream { flash.now[:notice] = "Successfully updated your profile." } 
       end 
-    else 
-      flash[:alert] = "Unable to update profile."
-      render :edit, status: :unprocessable_entity 
     end   
   end 
 
