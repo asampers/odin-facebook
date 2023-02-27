@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end 
     else 
-      render :new, status: :unprocessable_entity  
+      render :new
     end   
   end
 

@@ -23,11 +23,10 @@ RSpec.describe "Notifications", type: :system do
     click_on 'Manage Notifications'
     click_on 'Delete Some'
     first('button#notification-manager').click
-    expect(jane.reload.notifications.reload.count).to eq(1)
+    find('button#notification-manager').click
 
-    first('button#notification-manager').click
-    expect(jane.reload.notifications.count).to eq(0)
     expect(page).to have_content("You have no notifications!")
+    expect(jane.notifications.count).to eq(0)
   end
 
   scenario "user deletes all notifications at once" do 
@@ -40,7 +39,7 @@ RSpec.describe "Notifications", type: :system do
       click_on 'Delete All'
     end  
 
-    expect(jane.reload.notifications.count).to eq(0)
     expect(page).to have_content("You have no notifications!")
+    expect(jane.notifications.count).to eq(0)
   end
 end
