@@ -74,11 +74,23 @@
         <div class="col-4 mt-5 right-side d-none d-lg-inline">
           <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
             <h4 class="text-center">Popular Posts</h4>
-            <% Post.popular.each do |post| %>
+            <% Post.includes(:user).popular.each do |post| %>
               <%= link_to "#{post.user.username}", user_path(post.user.id),
                     class:"fw-semibold text-primary text-decoration-none" %> says <%= post.body.truncate(30) %>
               <hr>
             <% end %>  
+          </div>
+
+          <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
+            <h4 class="text-center">Newest Users</h4>
+            <ul class="list-group">
+            <% User.by_recently_created.limit(5).each do |user| %>
+              <div>
+                <%= image_tag user.gravatar_url(default: :mm), class:"rounded-circle img-fluid gravatar-home me-2" %>
+                <%= link_to "#{user.username}", user_path(user.id), class: "me-2" %> 
+              </div> 
+            <% end %>
+            </ul>  
           </div>
         </div>  
       </div> 

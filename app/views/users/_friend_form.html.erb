@@ -1,7 +1,7 @@
 <% @friendship = Friendship.where(friend: [current_user.id, user.id]).where(user:[current_user.id, user.id]).first %>
 
 <% if @friendship.nil? %>
-    <%= render 'add_friend', user: user %>
+    <%= render 'users/add_friend', user: user %>
 <% else %>    
   <% if @friendship.needs_user_response?(current_user.id) %>
     <div class="d-flex">

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Gravtastic
+  include OrderableByTimestamp
   gravtastic
   
   devise :database_authenticatable, :registerable,
