@@ -53,7 +53,17 @@
     </div>
 
     <%= query_diet_widget if Rails.env.development? %>
-    <%= yield %>
-    <%= turbo_frame_tag "remote_modal" %>
+    <div class="container">
+      <div class="row">
+        <div class="col"><%= yield %>
+        <%= turbo_frame_tag "remote_modal" %>
+        </div>  
+        
+        <div class="col-4 right-side d-none d-lg-inline">
+          <p>Hello I am on the right side</p>
+        </div>  
+      </div> 
+    </div>
+
   </body>
 </html>

@@ -1,12 +1,11 @@
-<div class="container mt-3">
-  <div class="container">
-    <%= render partial: 'posts/form' %>
-  </div>
-  <div id="posts">  
-    <% @posts.each do |post| %>
-      <%= turbo_frame_tag post do %>
-        <%= render post %>
-      <% end %>  
-    <% end %>    
-  <div>
-</div>  
+<div class="container">
+  <%= render partial: 'posts/form' %>
+</div> 
+
+<% @posts.each do |post| %>
+  <%= turbo_frame_tag post do %>
+      <%= render post %>
+  <% end %>  
+<% end %>    
+
+ 
