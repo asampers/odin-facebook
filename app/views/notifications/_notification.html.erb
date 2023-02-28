@@ -1,5 +1,5 @@
 <%= turbo_frame_tag notification do %>
-<li class="list-group-item rounded notification">
+<li class="list-group-item mb-1 rounded notification">
   <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
   <%= link_to notification.sender.username, notification.sender %>
         <span>

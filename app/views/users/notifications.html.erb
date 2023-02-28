@@ -2,8 +2,7 @@
   <h1 class="text-center">Notifications</h1>
 <%= turbo_frame_tag 'notifications-index' do %>
   <%= render 'notifications/empty' if current_user.notifications.none?%>
-
-  <div class="dropdown dropdown-menu-end float-end notification-manager">
+  <div class="dropdown dropdown-menu-end float-md-end notification-manager">
     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
       Manage Notifications
     </button>
@@ -31,7 +30,6 @@
         <%= render @old.includes(:sender, :notifiable) %> 
       </ul>
     <% end %>
-
 
   <% @new.each(&:read) %>
 </div>
