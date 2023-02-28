@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
   <%= render partial: 'posts/form' %>
 </div> 
 
 <% @posts.each do |post| %>
   <%= turbo_frame_tag post do %>
-      <%= render post %>
+      <%= render post%>
   <% end %>  
 <% end %>    
 
