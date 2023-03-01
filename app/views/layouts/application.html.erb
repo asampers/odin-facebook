@@ -48,7 +48,7 @@
       }
 
       .post:hover, .user:hover, .notification:hover {
-        box-shadow: 0 2px 8px 0 rgba(33,33,33,.2) !important;
+        box-shadow: 0 3px 11px 0 rgba(33,33,33,.2) !important;
       }
 
       #about {
@@ -73,14 +73,7 @@
         
       <% if user_signed_in? %>  
         <div class="col-4 mt-5 right-side d-none d-lg-inline">
-          <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
-            <h4 class="text-center">Popular Posts</h4>
-            <% Post.includes(:user).popular.each do |post| %>
-              <%= link_to "#{post.user.username}", user_path(post.user.id),
-                    class:"fw-semibold text-primary text-decoration-none" %> says <%= post.body.truncate(30) %>
-              <hr>
-            <% end %>  
-          </div>
+          <div id="right-top"><%= yield(:right_top) %></div>
 
           <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
             <h4 class="text-center">Newest Users</h4>

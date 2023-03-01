@@ -1,0 +1,9 @@
+<% content_for :right_top do %>
+  <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
+    <h4>Make a Post</h4>
+    <% @post = current_user.posts.build%>
+    <%= form_with model: @post, url: posts_path(), method: :post do |form| %>
+      <%= render partial: 'posts/form'  %>
+    <% end %>
+  </div> 
+<% end %> 
