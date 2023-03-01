@@ -71,6 +71,7 @@
         <%= turbo_frame_tag "remote_modal" %>
         </div>  
         
+      <% if user_signed_in? %>  
         <div class="col-4 mt-5 right-side d-none d-lg-inline">
           <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
             <h4 class="text-center">Popular Posts</h4>
@@ -92,7 +93,8 @@
             <% end %>
             </ul>  
           </div>
-        </div>  
+        </div> 
+      <% end %>   
       </div> 
     </div>
 
