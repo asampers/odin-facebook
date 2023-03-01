@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+  include OrderableByPopularity
+  
   belongs_to :user
   belongs_to :post, counter_cache: true
   belongs_to :parent, class_name: 'Comment', optional: true
@@ -9,8 +11,6 @@ class Comment < ApplicationRecord
   validates :user_id, presence: true
   validates :body, presence: true, length: { maximum: 250 }
 
-  scope :popular, -> { order(reactions_count: :desc).limit(5)}
-  
   def message
     if parent_id.nil?
       " commented '<em>#{body.truncate(85)}</em>' on your post."
