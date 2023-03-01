@@ -1,0 +1,10 @@
+<% content_for :right_top do %>
+  <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
+    <h4 class="text-center">Popular Comments</h4>
+      <% Comment.includes(:user).popular.each do |comment| %>
+          <%= link_to "#{comment.user.username}", user_path(comment.user.id),
+            class:"fw-semibold text-primary text-decoration-none" %> says <%= comment.body.truncate(30) %>
+          <hr>
+      <% end %>  
+  </div>
+<% end %>

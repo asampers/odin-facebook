@@ -4,14 +4,18 @@
   <% @friends = 'friendships/friend' %>
 <% end %> 
 
+<ul class="list-group">
 <% @accepted_friends.each do |friend| %>
   <% next if friend == @user %>
   <%= render @friends, user: friend %>
 <% end %> 
 
-<h5 class="mt-1"> <%= "Pending Requests" if @pending_friends.any? %> </h5>
+<% if @pending_friends.any? && current_user == @user %>
+  <h5 class="mt-1"> <%= "Pending Requests" %> </h5>
 
-<% @pending_friends.each do |friend| %>
-  <% next if friend == @user %>
-  <%= render @friends, user: friend %>
-<% end %>
+  <% @pending_friends.each do |friend| %>
+    <% next if friend == @user %>
+    <%= render @friends, user: friend %>
+  <% end %>
+<% end %>  
+</ul>
