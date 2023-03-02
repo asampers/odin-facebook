@@ -17,8 +17,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
 
-    if @post.save     
-      redirect_to posts_path
+    if @post.save 
+      respond_to do |format|    
+        format.html { redirect_to posts_path}
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('posts', @post) }
+      end  
     else  
       render :new, status: :unprocessable_entity
     end     

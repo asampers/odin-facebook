@@ -1,13 +1,15 @@
 <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
-  <%= render partial: 'posts/form' %>
+  <%= turbo_frame_tag id="new_post", src:new_post_path %>
 </div> 
 
+<%= turbo_stream_from "posts" %>
+<div id="posts">
 <% @posts.each do |post| %>
   <%= turbo_frame_tag post do %>
       <%= render post%>
   <% end %>  
 <% end %>    
-
+</div>
 <%= render 'layouts/popular_posts' %>
 <%= render 'layouts/newest_users' %>
 

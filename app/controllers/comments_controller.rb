@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       notify(@post.user, @comment)
       respond_to do |format|
         format.html { redirect_to request.referrer }
-        format.turbo_stream
+        format.turbo_stream { current_user } 
       end 
     else 
       render :new, status: :unprocessable_entity 

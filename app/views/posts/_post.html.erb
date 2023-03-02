@@ -15,7 +15,7 @@
           <%= turbo_frame_tag "post_#{post.id}_like_count" do %>
             <div class="d-inline-flex align-items-center">
               <%= link_to "#{pluralize(post.reactions.size, "Like")}", post_reactions_path(post), class:"text-secondary like-count text-decoration-none ms-2 me-3", "data-controller": "turbo" %>
-              <%= render partial: "reactions/button", locals: { reactable: post } %> 
+              
             </div> 
           <% end %>  
           <div class="d-inline-flex align-items-center">       
