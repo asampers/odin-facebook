@@ -6,6 +6,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           null,
@@ -74,6 +75,20 @@
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "/home/nanarama/repos/odin-facebook/app/models/concerns/orderable_by_timestamp.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          3,
+          74,
+          3,
+          3,
+          null,
           null
         ]
       },
@@ -150,6 +165,8 @@
         "lines": [
           1,
           1,
+          null,
+          1,
           1,
           1,
           1,
@@ -169,29 +186,27 @@
           null
         ]
       },
+      "/home/nanarama/repos/odin-facebook/app/models/concerns/orderable_by_popularity.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          28,
+          null,
+          null
+        ]
+      },
       "/home/nanarama/repos/odin-facebook/app/models/post.rb": {
         "lines": [
           1,
           1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/nanarama/repos/odin-facebook/app/models/concerns/orderable_by_timestamp.rb": {
-        "lines": [
-          1,
           1,
           null,
           1,
-          2,
-          36,
-          2,
-          2,
-          null,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -697,6 +712,6 @@
         }
       }
     },
-    "timestamp": 1677533915
+    "timestamp": 1677778179
   }
 }

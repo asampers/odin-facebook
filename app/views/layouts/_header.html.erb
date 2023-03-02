@@ -6,24 +6,18 @@
         <span class="navbar-toggler-icon bg-light rounded"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end " id="collapsibleNavbar">
-        <ul class="navbar-nav "> 
-          <li class="nav-item">
-            <a class="nav-link text-light hover-border" href="/users">
-              Discover Users
-            </a>
-          </li>
-          <li class="nav-item">
+        <div class="navbar-nav"> 
+            <a class="nav-link text-light hover-border" href="/users">Discover Users</a>
             <%= link_to user_notifications_path(current_user.id), class: "nav-link text-light hover-border" do %> 
               Notifications
               <span class="badge bg-danger rounded"><%= current_user.notifications.num_of_new unless current_user.notifications.num_of_new.zero? %></span>  
             <% end %>
-          </li>
           <li class="nav-item dropdown">
             <a class="head-dropdown nav-link dropdown-toggle text-light pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= image_tag current_user.gravatar_url(default: :mm), class:"rounded-circle gravatar-nav"%>
             </a>
             <ul class="dropdown-menu" style="min-width:60px">
-              <p class="ps-3 pt-2 mt-n1 d-block mb-0" style="text-decoration: none">
+              <p class="ps-3 pt-2 mt-n1 d-block mb-0">
                 Welcome, <span class="fw-bold"><%= current_user.username.titleize %></span>!
               </p>
               <li><hr class="dropdown-divider"></li>
@@ -33,10 +27,9 @@
                       class: "dropdown-item" %></li>
             </ul>
           </li>
-
-          <%= button_to 'Logout', destroy_user_session_path, 
-              class: "btn ps-0 text-light hover-border", method: :delete, data: { turbo: false } %> 
-        </ul>
+          <%= button_to 'Logout', destroy_user_session_path, class: "btn ps-0 text-light hover-border", 
+            method: :delete, data: { turbo: false } %> 
+        </div>
       </div>   
     <% end %> 
   </div>

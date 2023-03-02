@@ -10,7 +10,7 @@ RSpec.describe "Comments", type: :system do
     visit root_path
     find(:css, ".commenting").click
     fill_in "Enter your text here...", with: 'Great post, Jane!'
-    find(".post").click
+    find(".submit").click
   end
 
   scenario "john comments on jane's post" do 
@@ -34,7 +34,7 @@ RSpec.describe "Comments", type: :system do
     visit root_path
     find(:css, ".commenting").click
     fill_in "Enter your text here...", with: ''
-    find(".post").click
+    find(".submit").click
     
     expect(page).to have_content("Body can't be blank")
     expect(jane_post.comments.count).to eq(0)
@@ -47,7 +47,7 @@ RSpec.describe "Comments", type: :system do
     click_on '1 Comment'
     click_on 'Reply'
     fill_in "Enter your text here...", with: 'Thanks, John!'
-    find(".post").click
+    find(".submit").click
     
     
     expect(page).to have_content('Thanks, John!')
