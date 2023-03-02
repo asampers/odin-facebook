@@ -11,7 +11,7 @@ class Comment < ApplicationRecord
   validates :user_id, presence: true
   validates :body, presence: true, length: { maximum: 250 }
 
-  after_create_commit -> { broadcast_prepend_to "comments", partial: "comments/comment", locals: { comment: self }, target: "comments" }
+  after_create_commit -> { broadcast_prepend_to "comments", partial: "comments/comment", locals: { comment: self, post: self.post }, target: "comments" }
 
   def message
     if parent_id.nil?

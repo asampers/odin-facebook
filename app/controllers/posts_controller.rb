@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
+  
     if @post.save 
       respond_to do |format|    
         format.html { redirect_to posts_path}

@@ -1,6 +1,6 @@
 class ReactionsController < ApplicationController
   before_action :set_post, only: %i[index]
-  before_action :set_reaction, only: %i[destroy]
+  before_action :set_reaction, only: %i[show destroy]
 
   def create
     @reaction = current_user.reactions.create(reaction_params)
@@ -34,7 +34,7 @@ class ReactionsController < ApplicationController
   end
 
   def set_reaction
-    @reaction = Reaction.find(params[:id])
+    @reaction = current_user.reactions.find(params[:id])
   end
   
   def notify(user, reaction)

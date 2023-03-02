@@ -1,0 +1,6 @@
+<%= button_to reaction_path(reaction), method: :delete,
+                  class: "text-nowrap btn btn-primary" do %>
+                  <ion-icon name="thumbs-up"></ion-icon> 
+                  <%= "Unlike" if reactable.class == Post %>
+                  <%= reactable.reactions.size if reactable.class == Comment %>
+  <% end %>  
