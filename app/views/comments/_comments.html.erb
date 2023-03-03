@@ -1,3 +1,4 @@
+
 <% comments.includes(:parent, {comments:[:parent]}, :user).each do |comment|%>
   <div>
     <%= turbo_frame_tag comment do %>
