@@ -14,6 +14,8 @@ gem 'devise'
 
 gem 'figaro'
 
+gem 'kaminari'
+
 #Use OmniAuth for Facebook login
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
