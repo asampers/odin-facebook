@@ -2,7 +2,6 @@
   <%= turbo_frame_tag id="new_post", src:new_post_path %>
 </div> 
 
-<%= turbo_stream_from "posts" %>
 <div id="posts">
 <% @posts.each do |post| %>
   <%= turbo_frame_tag post do %>

@@ -11,8 +11,6 @@ class Comment < ApplicationRecord
   validates :user_id, presence: true
   validates :body, presence: true, length: { maximum: 250 }
 
-  after_create_commit -> { broadcast_replace_to "collapseComment#{post.id} %>", locals: {post: self.post_id} }
-
   def message
     if parent_id.nil?
       " commented '<em>#{body.truncate(85)}</em>' on your post."
