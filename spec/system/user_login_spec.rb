@@ -46,4 +46,15 @@ RSpec.describe "user login", type: :system do
       expect(page).to have_current_path(root_path)
     end
   end
+
+  context 'when user logs out' do
+    it 'redirects to new_user_session_path' do
+      login_as(user)
+      visit root_path
+      click_on 'Logout'
+
+      expect(page).to have_content('Signed out successfully.')
+      expect(page).to have_current_path(new_user_session_path)
+    end
+  end    
 end

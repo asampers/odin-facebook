@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  include OrderableByTimestamp
   include OrderableByPopularity
   
   belongs_to :user

@@ -30,9 +30,8 @@
           </div>
       </div>
 
-
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <%= render "comments/comments", comments: post.comments.order(created_at: :asc), post: post %>
+        <%= render "comments/comments", comments: post.comments.by_earliest_created, post: post %>
       </div> 
     
   </div>
