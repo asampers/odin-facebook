@@ -1,4 +1,9 @@
-<div class="container mt-2">
+<style>
+  .right-side {
+    display: none !important;
+  }
+</style>
+<div class="container mt-2 mx-auto">
   <h1 class="text-center">Notifications</h1>
 <%= turbo_frame_tag 'notifications-index' do %>
   <%= render 'notifications/empty' if current_user.notifications.none?%>
