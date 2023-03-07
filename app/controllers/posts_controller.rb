@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.includes(:user).by_recently_created
-    @post = current_user.posts.build
+    @posts = Post.includes(:user).by_recently_created.page(page)
+    @post = current_user.posts.build 
   end
 
   def show
@@ -28,7 +28,16 @@ class PostsController < ApplicationController
   end
 
   private 
+
   def post_params
     params.require(:post).permit(:body, :user_id)
+  end
+
+  def page
+    params.fetch(:page, 1).to_i
+  end
+
+  def posts_list_target
+    params.fetch(:turbo_target, "posts-list")
   end
 end

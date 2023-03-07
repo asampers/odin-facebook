@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import PaginationController from "./pagination_controller"
+application.register("pagination", PaginationController)
+
 import TurboController from "./turbo_controller"
 application.register("turbo", TurboController)
