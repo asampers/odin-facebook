@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.includes(:user).by_recently_created.page(page)
+    @posts = Post.includes(:user).by_recently_created.page(page).per(5)
     @post = current_user.posts.build 
   end
 
@@ -35,9 +35,5 @@ class PostsController < ApplicationController
 
   def page
     params.fetch(:page, 1).to_i
-  end
-
-  def posts_list_target
-    params.fetch(:turbo_target, "posts-list")
   end
 end

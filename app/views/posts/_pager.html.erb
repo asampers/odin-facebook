@@ -1,0 +1,14 @@
+<div id="pager">
+<%= page_entries_info @posts %>
+<% if (path_to_next_page @posts) %>
+  <%= link_to(
+        "Load more cards",
+        posts_path(page: (path_to_next_page @posts).gsub(/\D/, '')),
+        class:"invisible",
+        data: {
+          turbo_stream: "",
+          controller: "autoclick"
+        }
+      ) %>
+<% end %>
+</div>
