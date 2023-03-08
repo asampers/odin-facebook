@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/:user_id/notifications/delete', to: 'notifications#destroy_multiple', as: :destroy_multiple
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: "posts#index"
+
+  get 'users/:user_id/notifications/delete', to: 'notifications#destroy_multiple', as: :destroy_multiple
 
   resources :reactions, only: %i[create destroy]
   resources :friendships

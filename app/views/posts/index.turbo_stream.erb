@@ -8,3 +8,6 @@
   target: "pager",
   template: %(#{render "pager", posts: @posts})
 ) %>
+<%= turbo_stream.update "info" do %>
+  <%= page_entries_info @posts %> 
+<% end %>
