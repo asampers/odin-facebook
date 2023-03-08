@@ -9,12 +9,12 @@
   <% end %>  
 <% end %>   
 </div>
-<div id=info>
-<%= page_entries_info @posts %> 
+<%= render "pager", posts: @posts %>
+
+<div id=info class="text-center mb-1">
+  <%= page_entries_info @posts %> 
 </div>
 
-
-<%= render "pager", posts: @posts %>
 <%= render 'layouts/popular_posts' %>
 <%= render 'layouts/newest_users' %>
 
