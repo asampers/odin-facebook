@@ -93,14 +93,16 @@
         <%= turbo_frame_tag "remote_modal" %>
         </div>  
         
-      <% if user_signed_in? %>  
-        <div class="col-4 mt-5 right-side d-none d-lg-inline">
-          <div id="right-top"><%= yield(:right_top) %></div>
+        <% if user_signed_in? %>  
+          <div class="col-4 mt-5 right-side d-none d-lg-inline">
+            <div id="right-top"><%= yield(:right_top) %></div>
 
-          <div id="right-bottom"><%= yield(:right_bottom) %></div>
-        </div> 
-      <% end %>   
+            <div id="right-bottom"><%= yield(:right_bottom) %></div>
+            <div class="sticky-top text-center pt-5"><a href="#top" data-controller="scroll-to">Go to Top</a></div>
+          </div> 
+        <% end %>   
       </div> 
+      
     </div>
   </body>
 </html>

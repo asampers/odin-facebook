@@ -15,3 +15,6 @@ application.register("modal", ModalController)
 
 import TurboController from "./turbo_controller"
 application.register("turbo", TurboController)
+
+import ScrollTo from 'stimulus-scroll-to'
+application.register('scroll-to', ScrollTo)

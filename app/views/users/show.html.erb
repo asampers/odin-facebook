@@ -32,8 +32,9 @@
 
 <div class="tab-content">
   <div class="tab-pane container active" id="posts">
-    <% if @user.posts.any? %>
-      <%= render @user.posts.by_recently_created %>
+    <% if @posts.any? %>
+      <%= render @posts %>
+      <div class="d-md-block d-lg-none d-xl-none text-center pb-3"><a href="#top" data-controller="scroll-to">Go to Top</a></div>
     <% else %>
       <p><em>There are currently no posts.</em>
     <% end %>  

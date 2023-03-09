@@ -9,6 +9,7 @@
     "bootstrap-icons": "^1.10.3",
     "esbuild": "^0.16.12",
     "sass": "^1.57.1",
+    "stimulus-scroll-to": "^4.1.0",
     "stimulus-use": "^0.52.0"
   },
   "scripts": {
