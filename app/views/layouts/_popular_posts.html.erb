@@ -2,7 +2,7 @@
   <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
     <h4 class="text-center">Popular Posts</h4>
       <% Post.includes(:user).popular.each do |post| %>
-          <%= link_to "#{post.user.username}", user_path(post.user.id),
+          <%= link_to "#{post.user.username}", post_path(post),
             class:"fw-semibold text-primary text-decoration-none"%> says <%= post.body.truncate(30) %>
           <hr>
       <% end %>  
