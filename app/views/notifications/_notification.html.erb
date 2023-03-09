@@ -1,16 +1,16 @@
 <%= turbo_frame_tag notification do %>
-<li class="list-group-item mb-1 rounded notification">
-  <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
-  <%= link_to notification.sender.username, notification.sender %>
-        <span>
-          <%= raw notification.message %>
-        </span>
+<li class="d-flex justify-content-between align-center list-group-item mb-1 rounded notification">
+  <span>
+    <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
+    <%= link_to notification.sender.username, notification.sender %>
+    <%= raw notification.message %>
+  </span>
     <% if notification.friend_request? && notification.notifiable.pending? %>
-      <span class="float-end"><%= render 'friend_form', :user => notification.sender %></span>
+      <span class="ms-1"><%= render 'friend_form', :user => notification.sender %></span>
     <% end %>
   <span  class="float-end">  
   <%= button_to notification_path(notification), method: :delete, id:"notification-manager", 
-    class:"collapse btn btn-sm btn-outline-danger" do %>
+    class:"align-middle collapse btn btn-sm btn-outline-danger" do %>
       <ion-icon name="close" class="align-middle"></ion-icon>
   <% end %>
   <span>  
