@@ -1,2 +1,5 @@
 <%= render 'post', post: @post %>
 <%= link_to "< Back", :back, style: "text-decoration: none" %>
+<script>
+  document.getElementById("collapseComment<%= @post.id %>").classList.add("show");
+</script>
