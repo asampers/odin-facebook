@@ -2,15 +2,14 @@
   <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
     <h4 class="text-center">Popular Posts</h4>
       <% Post.includes(:user).popular.each do |post| %>
-          <%= link_to post_path(post), class:"text-decoration-none" do %>
-            <div class="fw-semibold text-primary">
-              <%= post.user.username %>
-              <span class="text-body fw-light"> 
+        <%= link_to post_path(post), class:"post text-decoration-none" do %>
+          <div class="fw-semibold text-primary border post rounded p-3">
+            <%= post.user.username %>
+            <span class="text-body fw-light"> 
               <%= "says '#{post.body.truncate(30)}'" %>
-              </span>
-            </div>
-            <% end %>
-          <hr>
+            </span>
+          </div>
+        <% end %>  
       <% end %>  
   </div>
 <% end %>

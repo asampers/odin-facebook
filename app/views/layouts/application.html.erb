@@ -51,6 +51,27 @@
         box-shadow: 0 3px 11px 0 rgba(33,33,33,.2) !important;
       }
 
+      .comment {
+        -webkit-animation: bummer 1s;
+    animation: bummer 1s;
+    -webkit-transform: scale(0.85,0.85); 
+    transform: scale(0.85,0.85);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; /* Add this so that your modal doesn't 
+                                      close after the animation completes */
+}
+
+@-webkit-keyframes bummer {
+    100% {
+        -webkit-transform: scale(1,1); 
+    }
+}
+
+@keyframes bummer {
+    100% {
+        transform: scale(1,1); 
+    }}
+
       .hover-border:after {
         content: '';
         display: block;
