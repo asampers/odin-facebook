@@ -1,8 +1,8 @@
-<%= turbo_frame_tag notification do %>
+<%#= turbo_frame_tag notification do %>
 <li class="d-flex justify-content-between align-center list-group-item mb-1 rounded notification">
   <span>
     <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
-    <%= link_to notification.sender.username, notification.sender %>
+    <%= notification.sender.username %>
     <%= raw notification.message %>
   </span>
     <% if notification.friend_request? && notification.notifiable.pending? %>
@@ -15,4 +15,4 @@
   <% end %>
   <span>  
 </li>
-<% end %>
+<%# end %>
