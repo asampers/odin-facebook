@@ -1,5 +1,9 @@
 <%= render 'post', post: @post %>
-<%= link_to "< Back", :back, style: "text-decoration: none" %>
+<%= link_to "< Back", root_path, style: "text-decoration: none" %>
+
+<%= render 'layouts/popular_posts' %> 
+<%= render 'layouts/popular_comments' %>
+
 <script>
   document.getElementById("collapseComment<%= @post.id %>").classList.add("show");
   document.getElementById("comment_<%= @comment.id unless @comment.nil? %>").classList.add('comment');
