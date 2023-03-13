@@ -1,4 +1,4 @@
-<%#= turbo_frame_tag notification do %>
+<%= turbo_frame_tag notification do %>
 <li class="d-flex justify-content-between align-center list-group-item mb-1 rounded notification">
   <span>
     <%= image_tag notification.sender.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
@@ -15,4 +15,4 @@
   <% end %>
   <span>  
 </li>
-<%# end %>
+<% end %>
