@@ -4,5 +4,5 @@
 
 <script>
   document.getElementById("collapseComment<%= @post.id %>").classList.add("show");
-  document.getElementById("comment_<%= @comment.id unless @comment.nil? %>").classList.add('comment');
+  document.getElementById("comment_num_<%= @comment.id unless @comment.nil? %>").classList.add('comment');
 </script>

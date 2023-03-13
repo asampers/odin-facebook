@@ -1,4 +1,4 @@
-<div class="ms-2 me-2 ps-3 pe-3">
+<div id="comment_num_<%=comment.id%>" class="ms-2 me-2 ps-3 pe-3">
   <hr class="border border-2 opacity-75">
   <span><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
   <%= link_to comment.user.username, comment.user %>: <%= comment.body %></span>
@@ -13,7 +13,7 @@
   </span>
 </div>
 
-<div class="ms-4" id=<%= "nested#{comment.id}" %> >
+<div class="ms-4">
   <% comment.comments.each do |nested_comment| %>  
     <%= turbo_frame_tag nested_comment do %>
       <%= render nested_comment, post: post %> 
