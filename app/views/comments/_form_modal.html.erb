@@ -4,7 +4,7 @@
   <% @title = "New Comment" %>  
 <% end %>  
 
-<%= turbo_frame_tag :remote_modal do %>
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
 <div class="modal" data-controller="modal">
   <div class="modal-dialog">
     <div class="modal-content">

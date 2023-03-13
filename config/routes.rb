@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root to: "posts#index"
+  root to: "posts#index", defaults: { format: 'html' } 
 
   get 'users/:user_id/notifications/delete', to: 'notifications#destroy_multiple', as: :destroy_multiple
 

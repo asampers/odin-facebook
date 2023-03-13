@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def index
     @posts = Post.includes(:user).by_recently_created.page(page).per(5)
-    @post = current_user.posts.build 
+    @post = current_user.posts.build     
   end
 
   def show
