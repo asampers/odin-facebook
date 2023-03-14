@@ -44,4 +44,12 @@ RSpec.describe "Notifications", type: :system do
     expect(page).to have_content("You have no notifications!")
     expect(jane.notifications.count).to eq(0)
   end
+
+  scenario "user clicks on notification to see comment" do
+    login_as(jane)
+    visit "users/#{jane.id}/notifications"
+    click_on 'post.'
+
+    expect(page).to have_current_path("/posts/#{post.id}?comment=#{comment.id}")
+  end
 end
