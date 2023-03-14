@@ -13,8 +13,8 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import ResetFormController from "./reset_form_controller"
+application.register("reset-form", ResetFormController)
+
 import TurboController from "./turbo_controller"
 application.register("turbo", TurboController)
-
-import ScrollTo from 'stimulus-scroll-to'
-application.register('scroll-to', ScrollTo)
