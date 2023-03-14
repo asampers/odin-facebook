@@ -1,9 +1,9 @@
-<div id="pager">
+<div id="pager" class="text-center">
   <% if @posts.next_page %>
     <%= link_to(
-          "Load more cards",
+          "",
           posts_path(page: (@posts.next_page)),
-          class:"invisible",
+          class:"spinner-border text-primary",
           data: {
             turbo_stream: "",
             controller: "autoclick"
