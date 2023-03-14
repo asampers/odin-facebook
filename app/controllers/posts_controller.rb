@@ -17,16 +17,26 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-  
+    @posts = Post.includes(:user).by_recently_created.page(page).per(5)
     if @post.save 
       respond_to do |format|    
         format.html { redirect_to posts_path}
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('posts', @post) }
+        format.turbo_stream
       end  
     else  
       render :new, status: :unprocessable_entity
     end     
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @posts = Post.by_recently_created.page(page).per(5)
+    respond_to do |format|
+      format.html { redirect_to request.referrer }
+      format.turbo_stream
+    end
+  end  
 
   private 
 

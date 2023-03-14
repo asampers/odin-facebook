@@ -1,0 +1,14 @@
+<%= turbo_stream.prepend('posts', @post) %>
+
+<%= turbo_stream_action_tag(
+  "replace",
+  target: "pager",
+  template: %(#{render "pager", posts: @posts})
+) %>
+<%= turbo_stream.update "info" do %> 
+  <% if @posts.last_page? %>
+    <%= raw "Displaying <b>all #{Post.count}</b> posts" %>
+  <% else %>
+    <%= page_entries_info @posts %>
+  <% end %>    
+<% end %>

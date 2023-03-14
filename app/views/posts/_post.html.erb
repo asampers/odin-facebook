@@ -5,18 +5,25 @@
               <%= link_to "#{post.user.username}", user_path(post.user.id), data: { turbo_frame: "_top" },
                     class:"fw-semibold text-primary text-decoration-none" %>
         </div>            
-        <p class="text-secondary small"><%= time_ago_in_words(post.created_at) %> ago </p>           
+        <div class="d-flex justify-content-end">  
+          <p class="text-secondary small"><%= time_ago_in_words(post.created_at) %> ago </p> 
+          <% if post.user == current_user%>
+            <%= link_to post_path(post), class:"ms-1 delete text-secondary text-decoration-none", data: { turbo_method: :delete } do %>
+              <ion-icon name="trash"></ion-icon>
+            <% end %>
+          <% end %> 
+        </div>               
       </div>
       <div class="container mb-3">
         <p class="fs-5" style="word-wrap: break-word"> <%= post.body %> </p>  
       </div>
-      <div class="d-flex justify-content-between ">
+      <div class="d-flex justify-content-between align-items-center">
           <%= turbo_frame_tag "post_#{post.id}_like_count" do %>
             <div class="d-inline-flex align-items-center">
               <%= link_to "#{pluralize(post.reactions.size, "Like")}", post_reactions_path(post), class:"text-secondary like-count text-decoration-none ms-2 me-3", "data-controller": "turbo" %>
               <%= render partial: "reactions/button", locals: {reactable: post} %> 
             </div> 
-          <% end %>  
+          <% end %>
           <div class="d-inline-flex align-items-center">       
             <%= link_to new_post_comment_path(post), class:"commenting btn btn-primary text-nowrap ms-2 me-3", "data-controller": "turbo" do %>
               <ion-icon name="chatbubbles"></ion-icon> 
