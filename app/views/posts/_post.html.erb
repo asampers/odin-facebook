@@ -31,7 +31,7 @@
       </div>
 
       <div class="collapse" id="collapseComment<%= post.id %>">
-        <%= render partial: "comments/comments", locals: {comments: post.comments.by_earliest_created, post: post} %>
+          <%= render partial: "comments/comments", locals: {comments: post.comments.by_earliest_created, post: post} %>
       </div> 
     
   </div>
