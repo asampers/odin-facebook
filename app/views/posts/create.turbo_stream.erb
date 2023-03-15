@@ -1,4 +1,7 @@
 <%= turbo_stream.prepend('posts', @post) %>
+<%= turbo_stream.update "errors" do %>
+  <%= render 'layouts/error_messages', object: @post %>
+<% end %>  
 
 <%= turbo_stream_action_tag(
   "replace",
