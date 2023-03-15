@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @posts = Post.includes(:user).by_recently_created.page(page).per(5)
+    
     if @post.save 
       respond_to do |format|    
         format.html { redirect_to posts_path}
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    @posts = Post.by_recently_created.page(page).per(5)
+    
     respond_to do |format|
       format.html { redirect_to request.referrer }
       format.turbo_stream
