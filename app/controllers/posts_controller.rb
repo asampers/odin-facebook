@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @posts = Post.includes(:user).by_recently_created.page(page).per(5)
-    @post = current_user.posts.build     
+    @posts = Post.includes(:user).by_recently_created.page(page).per(5)  
   end
 
   def show
@@ -12,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build  
   end
 
   def create

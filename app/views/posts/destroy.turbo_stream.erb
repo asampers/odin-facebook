@@ -3,3 +3,7 @@
 <%= turbo_stream.update "info" do %> 
   <%= raw "Displaying <b>all #{Post.count}</b> posts" %>
 <% end %>
+
+<%= turbo_stream.update "user_post_count" do %>
+  <p class="ps-2 float-start text-secondary"> <%= pluralize(current_user.posts.size, "Post") %> </p>
+<% end %>

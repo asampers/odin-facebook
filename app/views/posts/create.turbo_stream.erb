@@ -1,13 +1,13 @@
 <%= turbo_stream.prepend('posts', @post) %>
+
 <%= turbo_stream.update "errors" do %>
   <%= render 'layouts/error_messages', object: @post %>
 <% end %>  
-
 
 <%= turbo_stream.update "info" do %> 
   <%= raw "Displaying <b>all #{Post.count}</b> posts" %>
 <% end %>
 
-<%= turbo_stream.update "post_count" do %>
-  <p class="ps-2 float-start text-secondary"> <%= pluralize(@post.user.posts.size, "Post") %> </p>
+<%= turbo_stream.update "user_post_count" do %>
+  <p class="ps-2 float-start text-secondary"> <%= pluralize(current_user.posts.size, "Post") %> </p>
 <% end %>  
