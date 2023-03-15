@@ -1,10 +1,6 @@
 <% content_for :right_top do %>
   <div class="container mt-5 mb-4 p-3 border shadow-sm rounded post">
     <h4 class="pb-0 mb-0 text-center">Make a Post</h4>
-    <% @post = current_user.posts.build%>
-    <%= form_with model: @post, url: posts_path(), method: :post,
-    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |form| %>
-      <%= render partial: 'posts/form'  %>
-    <% end %>
+    <%= turbo_frame_tag id="new_post", src:new_post_path %>
   </div> 
 <% end %> 
