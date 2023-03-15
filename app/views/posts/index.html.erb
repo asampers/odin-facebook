@@ -1,4 +1,8 @@
-<h1 class="mt-2">All Posts</h1>
+<% if request.original_url.include?('true') %>
+  <span class="d-flex align-items-end justify-content-between"><%= link_to "All Posts", root_path, class:"all-post-feed text-secondary text-decoration-none" %><h1 class="mt-2">Your Feed</h1> </span>
+<% else %>
+  <span class="d-flex align-items-end justify-content-between"><h1 class="mt-2">All Posts</h1> <%= link_to "Your Feed", posts_path(feed: true), class:"all-post-feed text-secondary text-decoration-none" %></span>
+<% end %>
 
 <div class="container mt-3 mb-4 pb-3 border shadow-sm rounded post">
   <%= turbo_frame_tag id="new_post", src:new_post_path %>
@@ -14,8 +18,13 @@
 <%= render "pager", posts: @posts %>
 
 <div id=info class="text-center mb-1">
-  <%= page_entries_info @posts %> 
+  <%= page_entries_info @posts %>
 </div>
+
+<% if request.original_url.include?('feed=true') %>
+  <div class="text-center"><em>from you and your friends.</em></div>
+<% end %> 
+
 <div class="text-center pb-3"><a href="#top" data-controller="scroll-to">Go to Top</a></div>
 
 <%= render 'layouts/popular_posts' %>

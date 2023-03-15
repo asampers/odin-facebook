@@ -10,7 +10,7 @@
 ) %>
 <%= turbo_stream.update "info" do %> 
   <% if @posts.last_page? %>
-    <%= raw "Displaying <b>all #{Post.count}</b> posts" %>
+    <%= raw "Displaying <b>all #{@posts.total_count}</b> posts" %>
   <% else %>
     <%= page_entries_info @posts %>
   <% end %>    

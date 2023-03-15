@@ -1,9 +1,12 @@
 <%= turbo_stream.remove @post %>
 
 <%= turbo_stream.update "info" do %> 
-  <%= raw "Displaying <b>all #{Post.count}</b> posts" %>
+  <% if @posts %>
+  <%= raw "Displaying <b>all #{@posts.total_count}</b> posts" %>
+  <% end %>
 <% end %>
 
 <%= turbo_stream.update "user_post_count" do %>
   <p class="ps-2 float-start text-secondary"> <%= pluralize(current_user.posts.size, "Post") %> </p>
 <% end %>
+

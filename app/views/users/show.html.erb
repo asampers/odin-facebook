@@ -36,7 +36,9 @@
       <%= render @posts %>
       <div class="text-center pb-3"><a href="#top" data-controller="scroll-to">Go to Top</a></div>
     <% else %>
-      <p><em>There are currently no posts.</em>
+      <div id="no-posts">
+        <p><em>There are currently no posts.</em>
+      </div>
     <% end %>  
   </div>
   <div class="tab-pane container fade" id="friends">

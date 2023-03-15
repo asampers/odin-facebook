@@ -1,8 +1,8 @@
-<div id="pager" class="text-center">
+<div id="pager" class="text-center">  
   <% if @posts.next_page %>
     <%= link_to(
           "",
-          posts_path(page: (@posts.next_page)),
+          posts_path(feed: request.original_url.include?('feed=true'), page: (@posts.next_page)),
           class:"spinner-border text-primary",
           data: {
             turbo_stream: "",
