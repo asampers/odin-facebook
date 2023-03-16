@@ -21,10 +21,6 @@
   <%= page_entries_info @posts %>
 </div>
 
-<% if request.original_url.include?('feed=true') %>
-  <div class="text-center"><em>from you and your friends.</em></div>
-<% end %> 
-
 <div class="text-center pb-3"><a href="#top" data-controller="scroll-to">Go to Top</a></div>
 
 <%= render 'layouts/popular_posts' %>
