@@ -1,10 +1,10 @@
 <%= turbo_frame_tag :remote_modal, target: :_top do %>
-<div class="modal fade" data-controller="modal">
+<div class="modal" data-controller="modal" data-turbo-temporary>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Liked by:</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <% @post.reactions.includes(:user).each do |reaction| %>

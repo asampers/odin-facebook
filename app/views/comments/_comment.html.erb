@@ -9,7 +9,11 @@
   </span> 
   <span class="text-nowrap">
     <%= link_to "Reply", new_post_comment_path(post, :parent_id => comment), class:"reply text-secondary text-decoration-none", "data-controller": "turbo" %> 
-    <%= link_to "Delete", post_comment_path(post, comment), class:"delete text-secondary text-decoration-none", data: { turbo_method: :delete } if comment.user == current_user %>
+    <% if comment.user == current_user %>
+      <%= link_to post_comment_path(post, comment), class:"ms-2 delete text-secondary text-decoration-none", data: { turbo_method: :delete } do %>
+        <ion-icon name="trash"></ion-icon>
+      <% end %> 
+    <% end %>   
   </span>
 </div>
 

@@ -25,7 +25,7 @@
             </div> 
           <% end %>
           <div class="d-inline-flex align-items-center">       
-            <%= link_to new_post_comment_path(post), class:"commenting btn btn-primary text-nowrap ms-2 me-3", "data-controller": "turbo" do %>
+            <%= link_to new_post_comment_path(post), "data-controller": "turbo", class:"commenting btn btn-primary text-nowrap ms-2 me-3" do %>
               <ion-icon name="chatbubbles"></ion-icon> 
             <% end %>  
 
