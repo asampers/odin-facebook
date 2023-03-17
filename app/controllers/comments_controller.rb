@@ -3,12 +3,12 @@ class CommentsController < ApplicationController
   before_action :set_parent, only: %i[new]
 
   def new
-    @comment = @post.comments.build
+    @comment = Comment.new
   end
 
   def create
     @comment = @post.comments.build(comment_params)
-
+    @parent = @comment.parent
     if @comment.save
       notify(@post.user, @comment)
       respond_to do |format|
