@@ -15,7 +15,6 @@ RSpec.describe "Comments", type: :system do
 
   scenario "john comments on jane's post" do 
     john_comments()
-    click_on '1 Comment'
     
     expect(page).to have_content('Great post, Jane!')
     expect(jane_post.comments.count).to eq(1)
@@ -23,8 +22,9 @@ RSpec.describe "Comments", type: :system do
 
   scenario "john deletes his comment on jane's post" do 
     john_comments()
-    click_on '1 Comment'
-    click_on 'Delete'
+    expect(page).to have_content('Great post, Jane!')
+    find('.delete').click
+
     expect(page).to have_content('0 Comments')
     expect(jane_post.comments.count).to eq(0)
   end
@@ -48,7 +48,6 @@ RSpec.describe "Comments", type: :system do
     click_on 'Reply'
     fill_in "Enter your text here...", with: 'Thanks, John!'
     find(".submit").click
-    
     
     expect(page).to have_content('Thanks, John!')
     expect(jane_post.comments.count).to eq(2)
