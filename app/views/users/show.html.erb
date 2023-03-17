@@ -59,11 +59,11 @@
 </div>
 
 <% if @user == current_user %>
-  <%= render 'layouts/right_hand_post_form' %>
+  <%= render 'layouts/shared/right_hand_post_form' %>
 <% else %>  
-  <%= render 'layouts/popular_comments' %>
+  <%= render 'layouts/shared/popular_comments' %>
 <% end %>  
-<%= render 'layouts/newest_users' %>
+<%= render 'layouts/shared/newest_users' %>
 
 
 
