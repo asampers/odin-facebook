@@ -1,8 +1,10 @@
-<% if request.original_url.include?('true') %>
-  <span class="d-flex align-items-end justify-content-between"><%= link_to "All Posts", root_path, class:"all-post-feed text-secondary text-decoration-none" %><h1 class="mt-2">Your Feed</h1> </span>
-<% else %>
-  <span class="d-flex align-items-end justify-content-between"><h1 class="mt-2">All Posts</h1> <%= link_to "Your Feed", posts_path(feed: true), class:"all-post-feed text-secondary text-decoration-none" %></span>
-<% end %>
+<span class="d-flex align-items-end justify-content-between">
+  <% if request.original_url.include?('true') %>
+    <%= link_to "All Posts", root_path, class:"all-post-feed text-secondary text-decoration-none" %><h1 class="mt-2">Your Feed</h1>
+  <% else %>
+    <h1 class="mt-2">All Posts</h1> <%= link_to "Your Feed", posts_path(feed: true), class:"all-post-feed text-secondary text-decoration-none" %>
+  <% end %>
+</span>
 
 <div class="container mt-3 mb-4 pb-3 border shadow-sm rounded post">
   <%= turbo_frame_tag id="new_post", src:new_post_path %>
