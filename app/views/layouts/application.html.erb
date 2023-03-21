@@ -96,6 +96,7 @@
       <div class="row">
         <div class="col">
           <%= yield %>
+          <%= turbo_frame_tag "remote_modal" %>
         </div>  
         
         <% if user_signed_in? %>  
