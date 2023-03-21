@@ -1,9 +1,9 @@
 class WelcomeMailer < ApplicationMailer
-  default from: 'notifications@sampers.com'
+  default from: 'afriendbook@gmail.com'
 
   def welcome_email(user)
     @user = user
-    @url = 'http://localhost:3000/'
+    @url = 'https://friendbook.fly.dev/'
     mail(to: @user.email, subject: 'Welcome to Sampers Social Media.')
   end
 end

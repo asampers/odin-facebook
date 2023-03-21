@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
   attr_writer :login
 
