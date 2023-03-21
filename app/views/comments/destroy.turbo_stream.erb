@@ -2,7 +2,7 @@
 
 
 <%= turbo_stream.update "post_#{@post.id}_comment_count" do %>
-  <a class=" text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= @post.id%>" role="button"> 
+  <a class="comment-count text-secondary text-decoration-none" data-bs-toggle="collapse" href="#collapseComment<%= @post.id%>" role="button"> 
     <%= pluralize(@post.reload.comments.size, "Comment") %>
   </a>
 <% end %> 
