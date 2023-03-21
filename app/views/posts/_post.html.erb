@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-end">  
           <p class="text-secondary small"><%= time_ago_in_words(post.created_at) %> ago </p> 
           <% if post.user == current_user%>
-            <%= link_to post_path(post), class:"ms-1 delete text-secondary text-decoration-none", data: { turbo_method: :delete } do %>
+            <%= link_to post_path(post), class:"ms-1 delete text-secondary text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
               <ion-icon name="trash"></ion-icon>
             <% end %>
           <% end %> 

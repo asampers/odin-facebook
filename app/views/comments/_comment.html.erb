@@ -10,7 +10,7 @@
   <span class="text-nowrap">
     <%= link_to "Reply", new_post_comment_path(post, :parent_id => comment), class:"reply text-secondary text-decoration-none", "data-controller": "turbo" %> 
     <% if comment.user == current_user %>
-      <%= link_to post_comment_path(post, comment), class:"ms-2 delete text-secondary text-decoration-none", data: { turbo_method: :delete } do %>
+      <%= link_to post_comment_path(post, comment), class:"ms-2 delete text-secondary text-decoration-none", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
         <ion-icon name="trash"></ion-icon>
       <% end %> 
     <% end %>   
