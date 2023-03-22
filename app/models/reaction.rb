@@ -6,7 +6,7 @@ class Reaction < ApplicationRecord
   validates :user_id, uniqueness: { scope: %i[reactable_id reactable_type] }
 
   def message
-    " liked your '<em>#{reactable.body.truncate(25)}</em>' <a href=#{link_helper()} target='_top'>#{reactable_type.downcase}.</a>"
+    " <a href=#{link_helper()} target='_top'>liked your #{reactable_type.downcase}</a>: '<em>#{reactable.body.truncate(35)}</em>'"
   end
 
   def link_helper

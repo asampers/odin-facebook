@@ -1,10 +1,10 @@
-<div id="comment_num_<%=comment.id%>" class="d-md-flex justify-content-between ms-2 me-2 ps-3 pe-3">
+<div id="comment_num_<%=comment.id%>" class="ms-2 me-2 ps-3 pe-3">
   
-  <div class="me-1"><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
+  <span><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
     <%= link_to comment.user.username, comment.user %>: 
     <%= comment.body %>
-  </div>
-  <div class="d-flex align-items-center justify-content-end">
+  </span>
+  <span class="d-flex align-items-center ms-3 mt-3">
     <%= turbo_frame_tag "comment_#{comment.id}_like_count" do %>
       <%= render partial: "reactions/button", locals: {reactable: comment}  %>
     <% end %>
@@ -15,7 +15,7 @@
         <ion-icon name="trash"></ion-icon>
       <% end %> 
     <% end %>   
-  </div>
+  </span>
 </div>
 
 <div class="ms-4">
