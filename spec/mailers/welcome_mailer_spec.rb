@@ -14,7 +14,7 @@ RSpec.describe WelcomeMailer, type: :mailer do
     end
 
     it "renders the sender email" do
-      expect(mail.from).to eq(['notifications@sampers.com'])
+      expect(mail.from).to eq(['afriendbook@gmail.com'])
     end
 
     it "contains the user's username" do
@@ -23,7 +23,7 @@ RSpec.describe WelcomeMailer, type: :mailer do
 
     it "contains a link to the home page" do
       expect(mail.body.encoded)
-        .to match('http://localhost:3000/')
+        .to match('https://friendbook.fly.dev/')
     end
   end
 end
