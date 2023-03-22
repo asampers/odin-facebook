@@ -25,8 +25,8 @@
             </div> 
           <% end %>
           <div class="d-inline-flex align-items-center">       
-            <%= link_to new_post_comment_path(post), "data-controller": "turbo", class:"commenting btn btn-primary text-nowrap ms-2 me-3" do %>
-              <ion-icon name="chatbubbles"></ion-icon> 
+            <%= link_to new_post_comment_path(post), title:"New Comment", "data-controller": "turbo", class:"commenting btn btn-primary text-nowrap ms-2 me-3" do %>
+              <ion-icon name="chatbubbles"></ion-icon>
             <% end %>  
 
             <%= turbo_frame_tag "post_#{post.id}_comment_count" do %>  
@@ -39,7 +39,6 @@
 
       <div class="collapse" id="collapseComment<%= post.id %>">
           <%= render partial: "comments/index", locals: {comments: post.comments.by_earliest_created, post: post} %>
-      </div> 
-    
+      </div>
   </div>
 </div>
