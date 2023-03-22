@@ -2,11 +2,16 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @posts = if params[:feed].nil? || params[:feed] == 'false'
-              Post.includes(:user).by_recently_created.page(page).per(5) 
+    @posts = if params[:all_posts] == 'true'
+              Post.includes(:user).by_recently_created.page(page).per(5)
             else
-              Post.where(user: (User.find(current_user.friendships.accepted.pluck(:user_id, :friend_id)))).includes(:user).by_recently_created.page(page).per(5) 
-            end  
+              Post.where(user: [(User.find(current_user.friendships.accepted.pluck(:user_id, :friend_id))), current_user]).includes(:user).by_recently_created.page(page).per(5) 
+            end 
+    @title = if request.original_url.include?('true') 
+              "All Posts"
+            else 
+              "Your Feed"
+            end     
   end  
 
   def show

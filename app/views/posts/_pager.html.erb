@@ -2,7 +2,7 @@
   <% if @posts.next_page %>
     <%= link_to(
           "",
-          posts_path(feed: request.original_url.include?('feed=true'), page: (@posts.next_page)),
+          posts_path(all_posts: request.original_url.include?('all_posts=true'), page: (@posts.next_page)),
           class:"spinner-border text-primary",
           data: {
             turbo_stream: "",

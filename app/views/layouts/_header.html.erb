@@ -7,11 +7,12 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end " id="collapsibleNavbar">
         <div class="navbar-nav"> 
-            <a class="nav-link text-light hover-border" href="/users">Discover Users</a>
-            <%= link_to user_notifications_path(current_user.id), class: "nav-link text-light hover-border" do %> 
-              Notifications
-              <span class="badge bg-danger rounded"><%= current_user.notifications.num_of_new unless current_user.notifications.num_of_new.zero? %></span>  
-            <% end %>
+          <%= link_to "All Posts", posts_path(all_posts: true), class:"nav-link text-light hover-border" %>
+          <a class="nav-link text-light hover-border" href="/users">Discover Users</a>
+          <%= link_to user_notifications_path(current_user.id), class: "nav-link text-light hover-border" do %> 
+            Notifications
+            <span class="badge bg-danger rounded"><%= current_user.notifications.num_of_new unless current_user.notifications.num_of_new.zero? %></span>  
+          <% end %>
           <li class="nav-item dropdown">
             <a class="head-dropdown nav-link dropdown-toggle text-light pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= image_tag current_user.gravatar_url(default: :mm), class:"rounded-circle gravatar-nav"%>
