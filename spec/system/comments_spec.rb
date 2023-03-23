@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Comments", type: :system do
   let!(:jane) { create(:user, :jane) }
   let!(:john) { create(:user, :john) }
+  let!(:friendship) { create(:friendship, user_id: jane.id, friend_id: john.id, status: 'accepted') }
   let!(:jane_post) { FactoryBot.create(:post, user: jane) }
 
   def john_comments
@@ -23,7 +24,9 @@ RSpec.describe "Comments", type: :system do
   scenario "john deletes his comment on jane's post" do 
     john_comments()
     expect(page).to have_content('Great post, Jane!')
-    find('.delete').click
+    accept_confirm do
+      find('.delete').click
+    end  
 
     expect(page).to have_content('0 Comments')
     expect(jane_post.comments.count).to eq(0)

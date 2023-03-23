@@ -36,9 +36,11 @@ RSpec.describe "Posts", type: :system do
     expect(page).to have_content('Test post')
     expect(jane.posts.count).to eq(1)
 
-    find('.delete').click
+    accept_confirm do
+      find('.delete').click
+    end  
     
-    expect(jane.posts.count).to eq(0)
     expect(page).to have_no_content('Test post')
+    expect(jane.posts.count).to eq(0)
   end
 end

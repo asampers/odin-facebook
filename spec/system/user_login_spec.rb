@@ -20,7 +20,7 @@ RSpec.describe "user login", type: :system do
   end
 
   context 'when user is logged in with valid credentials' do
-    it 'successfully redirects to newsfeed as root path' do
+    it 'successfully redirects to feed as root path' do
       visit(user_session_path)
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
