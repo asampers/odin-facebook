@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @title = if request.original_url.include?('true') 
               "All Posts"
             else 
-              "Your Feed"
+              "#{current_user.username}'s Feed"
             end     
   end  
 
