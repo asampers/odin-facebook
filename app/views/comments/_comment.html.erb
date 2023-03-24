@@ -1,6 +1,6 @@
 <div id="comment_num_<%=comment.id%>" class="ms-2 me-2 ps-3 pe-3">
   
-  <span><%= image_tag comment.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-comment" %>
+  <span><%= image_tag comment.user.gravatar_url(default: :identicon), class:"rounded-circle me-2 gravatar-comment" %>
     <%= link_to comment.user.username, comment.user %>: 
     <%= comment.body %>
   </span>

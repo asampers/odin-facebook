@@ -1,6 +1,6 @@
 <div class="ps-2 pe-2">
     <div class="dropdown-item mb-2">
-      <%= image_tag user.gravatar_url(default: :mm),
+      <%= image_tag user.gravatar_url(default: :identicon),
                     :class => "gravatar-comment me-1" %>
       <%= link_to "#{user.username}",
                     user_path(user),

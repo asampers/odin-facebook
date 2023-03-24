@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>" >
   <div class="container mt-3 mb-4 p-3 border shadow-sm rounded post">
       <div class="d-flex justify-content-between">
-        <div><%= image_tag post.user.gravatar_url(default: :mm), class:"rounded-circle me-2 gravatar-home" %>
+        <div><%= image_tag post.user.gravatar_url(default: :identicon), class:"rounded-circle me-2 gravatar-home" %>
               <%= link_to "#{post.user.username}", user_path(post.user.id), data: { turbo_frame: "_top" },
                     class:"fw-semibold text-primary text-decoration-none" %>
         </div>            

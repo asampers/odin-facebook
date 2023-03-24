@@ -3,7 +3,7 @@
     <h4 class="text-center">Newest Users</h4>
       <% User.by_recently_created.limit(5).each do |user| %>
         <div>
-          <%= image_tag user.gravatar_url(default: :mm), class:"rounded-circle img-fluid gravatar-home me-2 mb-1" %>
+          <%= image_tag user.gravatar_url(default: :identicon), class:"rounded-circle img-fluid gravatar-home me-2 mb-1" %>
           <%= link_to "#{user.username}", user_path(user.id), class: "me-2" %> 
         </div> 
       <% end %>
