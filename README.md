@@ -24,6 +24,7 @@ Password: `111111`
   - posts can have many likes and comments 
   - a user's feed shows them their own posts and those by their friends 
 - Comment
+  - users can create and delete comments
   - users can reply to others (nested comments)
   - comments can have many likes
 - Notification
@@ -50,9 +51,9 @@ Password: `111111`
 
 ## Personal Lessons and Reflections (!elaborate!)
 - [Infinite scroll](https://www.colby.so/posts/infinite-scroll-with-turbo-streams-and-stimulus)
-- n+1 issues
+- n+1 issues (added counter caches)
 - testing coverage
-- turbo frames wherever possible
+- turbo frames wherever possible (comments/posts/count updates)
 - stimulus to make modals load when clicked 
 - had so much fun!
 
@@ -72,9 +73,9 @@ Bundler >= 2.3.14
 - View by visiting `localhost:3000` in a web browser
 
 ## Running the tests
-- To run the entire test suite `rspec`
-- You can specify one spec folder to run a group of tests, such as `rspec spec/system`
-- You can specify one spec folder to run a single set of tests, such as `rspec spec/models/notification_spec.rb`
+- To run the entire test suite:  `rspec`
+- You can specify one spec folder to run a group of tests, such as:  `rspec spec/system`
+- You can specify one spec folder to run a single set of tests, such as:  `rspec spec/models/notification_spec.rb`
 
 ## Contact
 Anna Sampers - [LinkedIn](https://linkedin.com/in/anna-sampers) - annasampers@gmail.com
