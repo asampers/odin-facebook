@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   
   def index
     @posts = if params[:all_posts] == 'true'
-              Post.includes(:user).by_recently_created.page(page).per(5)
+              Post.includes(:user).by_recently_created.page(page).per(10)
             else
-              Post.where(user: (User.find(current_user.friendships.accepted.pluck(:user_id, :friend_id)))).or(Post.where(user: current_user)).includes(:user).by_recently_created.page(page).per(5) 
+              Post.where(user: (User.find(current_user.friendships.accepted.pluck(:user_id, :friend_id)))).or(Post.where(user: current_user)).includes(:user).by_recently_created.page(page).per(10) 
             end 
     @title = if request.original_url.include?('true') 
               "All Posts"
