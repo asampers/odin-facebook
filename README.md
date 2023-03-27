@@ -42,6 +42,7 @@ Password: `111111`
 - Friendship
   - utilized relation queries so that only 1 database record is created for each friendship
   - users can send + decline friend requests 
+  - posts won't show on user's feed until proposed friend accepts the friendship
 - Style
   - designed with Bootstrap
   - responsive layout
@@ -49,13 +50,21 @@ Password: `111111`
   - Rspec/Capybara
   - 94% coverage
 
-## Personal Lessons and Reflections (!elaborate!)
-- [Infinite scroll](https://www.colby.so/posts/infinite-scroll-with-turbo-streams-and-stimulus)
-- n+1 issues (added counter caches)
-- testing coverage
-- turbo frames wherever possible (comments/posts/count updates)
-- stimulus to make modals load when clicked 
-- had so much fun!
+## Personal Lessons and Reflections
+  ### Infinite Scroll
+  I really wanted to implement an infinite scroll for my post index views to more closely resemble the user experience on Facebook. I 
+  followed [this tutorial](https://www.colby.so/posts/infinite-scroll-with-turbo-streams-and-stimulus) and found it to be a really cool use of turbo streams. 
+  ### Fixing N+1 Issues 
+  It was very important to me that I address any n+1 issues as best I could to improve performance. After researching, I utilized the [bullet](https://github.com/flyerhzm/bullet) and [query_diet](https://github.com/makandra/query_diet) gems to
+  help identify places where eager loading was needed. I also added counter caches to my database so that I could easily
+  query the number of comments and likes for each post.
+  ### Testing
+  I got really into testing on this project (the thrill of an all-green test suite is unbeatable!). I already had familiarity 
+  with Rspec testing for Ruby, but did a lot of research to understand how that applied to Rails and what aspects of a Rails app
+  were important to test. I used the [SimpleCov](https://github.com/simplecov-ruby/simplecov) gem to track and figure out my testing coverage.
+  ### Turbo Frames / Stimulus
+  The magic of turbo frames and stimulus cannot be overstated! It was fun to figure out the best use for them within the app to 
+  allow for a more seamless user experience (a user being able to edit their info directly in their profile view rather than being navigated away) and better app performance (lazy loading modals after they're clicked).
 
 ## Local Installation
 To run locally, you must have the following prerequisites:
