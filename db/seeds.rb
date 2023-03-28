@@ -82,40 +82,41 @@ whale = Post.find_or_create_by(user: fiona, body: " Willy and I didn't get off t
   Notification.find_or_create_by(user: fiona, notifiable: three, sender: felix)
 
 muppet = Post.find_or_create_by(user: maybe, body: "I don't care what you think of me, unless you think I'm awesome. In which case you are right.")
-  parent = Comment.find_or_create_by(user: oskar, post: muppet, body: "It's nice to be important, but it's important to be nice :)")
-  one = Reaction.find_or_create_by(user: trudy, reactable: muppet)
-  two = Reaction.find_or_create_by(user: gerald, reactable: muppet)
-  Notification.find_or_create_by(user: maybe, notifiable: one, sender: trudy)
-  Notification.find_or_create_by(user: maybe, notifiable: parent, sender: oskar)
+  nice = Comment.find_or_create_by(user: oskar, post: muppet, body: "It's nice to be important, but it's important to be nice :)")
+  four = Reaction.find_or_create_by(user: trudy, reactable: muppet)
+  five = Reaction.find_or_create_by(user: gerald, reactable: muppet)
+  Notification.find_or_create_by(user: maybe, notifiable: four, sender: trudy)
+  Notification.find_or_create_by(user: maybe, notifiable: nice, sender: oskar)
 
 dream = Post.find_or_create_by(user: charles, body: "I had the craziest dream last night. I was riding an elephant and it started to fly
   and asked me if I'd done all my homework. Not sure what that means...")
-  one = Reaction.find_or_create_by(user: flower_power, reactable: dream)
-  Notification.find_or_create_by(user: charles, notifiable: one, sender: flower_power)
+  six = Reaction.find_or_create_by(user: flower_power, reactable: dream)
+  Notification.find_or_create_by(user: charles, notifiable: six, sender: flower_power)
 
 powder = Post.find_or_create_by(user: gerald, body: "It has become appallingly clear that our technology has surpassed our humanity.")  
-  parent = Comment.find_or_create_by(user: sugarbear, post: powder, body: "Albert Einstein.")
-  reply = Comment.find_or_create_by(user: gerald, post: powder, parent: parent, body: "When I look at you, I have hope that maybe one day our humanity will surpass our technology.")
-  one = Reaction.find_or_create_by(user: all_smiles, reactable: reply)
-  Notification.find_or_create_by(user: gerald, notifiable: parent, sender: sugarbear)
-  Notification.find_or_create_by(user: gerald, notifiable: one, sender: all_smiles)
+  albert = Comment.find_or_create_by(user: sugarbear, post: powder, body: "Albert Einstein.")
+  surpass = Comment.find_or_create_by(user: gerald, post: powder, parent: albert, body: "When I look at you, I have hope that maybe one day our humanity will surpass our technology.")
+  seven = Reaction.find_or_create_by(user: all_smiles, reactable: surpass)
+  Notification.find_or_create_by(user: gerald, notifiable: albert, sender: sugarbear)
+  Notification.find_or_create_by(user: gerald, notifiable: seven, sender: all_smiles)
 
 sonora = Post.find_or_create_by(user: sugarbear, body: "I found my destiny, not in far off places but within myself.")
-  parent = Comment.find_or_create_by(user: fiona, post: sonora, body: "You poor thing. Who does your hair?")
-  reply = Comment.find_or_create_by(user: sugarbear, post: sonora, parent: parent, body: "Well, I do.")
-  comment = Comment.find_or_create_by(user: felix, post: sonora, parent: reply, body: "you have to be extremely careful 
+  hair = Comment.find_or_create_by(user: fiona, post: sonora, body: "You poor thing. Who does your hair?")
+  well = Comment.find_or_create_by(user: sugarbear, post: sonora, parent: hair, body: "Well, I do.")
+  careful = Comment.find_or_create_by(user: felix, post: sonora, parent: well, body: "you have to be extremely careful 
     with your appearance. I mean, having no natural beauty of your own you really need to help yourself")
+  Reaction.find_or_create_by(user: felix, reactable: hair)
 
 jurassic = Post.find_or_create_by(user: oskar, body: "All major theme parks have delays. When they opened Disneyland in 1956, nothing worked!")
-  comment = Comment.find_or_create_by(user: maybe, post: jurassic, body: "Yeah, but, if The Pirates of the Caribbean breaks down, the pirates don't eat the tourists.")
-  Reaction.find_or_create_by(user: charles, reactable: comment)
+  yeah = Comment.find_or_create_by(user: maybe, post: jurassic, body: "Yeah, but, if The Pirates of the Caribbean breaks down, the pirates don't eat the tourists.")
+  Reaction.find_or_create_by(user: charles, reactable: yeah)
   Reaction.find_or_create_by(user: trudy, reactable: jurassic)
   Reaction.find_or_create_by(user: charles, reactable: jurassic)
 
 happy = Post.find_or_create_by(user: all_smiles, body: "If you're happy and you know it, clap your hands!")
   Comment.find_or_create_by(user: sugarbear, post: happy, body: "Clap!!")
   Comment.find_or_create_by(user: flower_power, post: happy, body: "CLAP CLAP")
-
+  
 titanic = Post.find_or_create_by(user: trudy, body: "Did you know, in the 1997 classic 'Titanic', at around the 53 min mark, 
   when Jack and Rose are talking about going to the Santa Monica Pier, Jack says that they will 'ride on the roller coaster 
   until we throw up' but the roller coaster was not built until 1916.")
