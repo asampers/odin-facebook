@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
     <div class="border border-1 rounded shadow mt-4 px-4 py-3">
       <h2>Log in</h2>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
         <div class="field">
           <%= f.label :login, "Email or Username" %><br />
           <%= f.text_field :login, :class => 'input-primary dark:input-dark' %>
