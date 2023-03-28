@@ -10,9 +10,9 @@ You can view this [web app](https://friendbook.fly.dev/users/sign_in) on Fly.
 If you would like to create friendships or generate notifications by liking/commenting, you may log in as any of the sample users. 
 
 Sample usernames:
-`Fiona`   |   `Maybe`   
+`Fiona`   |   `Maybe`   | `Charles76`   |   `Gerald`   
 
-Password: `111111`
+Password: `HelloWorld`
 
 ## Features
 - Sign-in
