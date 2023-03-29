@@ -3,6 +3,6 @@
     <%= link_to "Let's find some!", users_path %> </p>
 <% else %>
   <p><%= @user.username %> doesn't have any friends yet. <br>
-   <em>Would you like to be there first one?</em></p>
+   <em>Would you like to be their first one?</em></p>
   <%= render 'friend_form', user: @user %>
 <% end %>
