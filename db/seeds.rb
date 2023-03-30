@@ -129,3 +129,11 @@ rain = Post.find_or_create_by(user: flower_power, body: "Whenever you can, go ou
   Reaction.find_or_create_by(user: oskar, reactable: rain)
   Reaction.find_or_create_by(user: all_smiles, reactable: rain)
 p "Created posts."
+
+posts = [rain, cat, titanic, happy, jurassic, sonora, powder, dream, muppet, whale]
+# Randomize the timestamp, so they don't all look like they were created at the exact same time
+posts.map do |post|
+  timestamp = rand(3.days.ago..Time.zone.now)
+  post.update(created_at: timestamp, updated_at: timestamp)
+end
+p "Randomized posts."
