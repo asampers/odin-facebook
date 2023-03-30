@@ -1,8 +1,8 @@
 <div id="comment_num_<%=comment.id%>" class="ms-2 me-2 ps-3 pe-3">
   
-  <span><%= image_tag comment.user.gravatar_url(default: :identicon), class:"rounded-circle me-2 gravatar-comment" %>
-    <%= link_to comment.user.username, comment.user %>: 
-    <%= comment.body %>
+  <span><%= image_tag comment.user.gravatar_url(default: :identicon), class:"rounded-circle me-2 gravatar-small" %>
+    <%= link_to "#{comment.user.username}:", comment.user, class:"align-bottom" %> 
+    <span class="align-bottom"><%= comment.body %></span>
   </span>
   <span class="d-flex align-items-center ms-3 mt-3">
     <%= turbo_frame_tag "comment_#{comment.id}_like_count" do %>
