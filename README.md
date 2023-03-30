@@ -14,6 +14,8 @@ Sample usernames:
 
 Password: `HelloWorld`
 
+![Short demo of Friendbook](example.gif)
+
 ## Features
 - Sign-in
   - account creation is handled with Devise
