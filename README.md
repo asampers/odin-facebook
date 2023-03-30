@@ -14,7 +14,7 @@ Sample usernames:
 
 Password: `HelloWorld`
 
-![Short demo of Friendbook](example.gif)
+![Short demo of Friendbook](demo.gif)
 
 ## Features
 - Sign-in
