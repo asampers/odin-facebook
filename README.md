@@ -19,38 +19,38 @@ Password: `HelloWorld`
 
 ## Features
 
-- Sign-in
+- **Sign-in**
   - account creation is handled with Devise
   - users can also sign-in with their Facebook account via OmniAuth
   - new users are sent a welcome email
-- Post
+- **Post**
   - users can create and delete posts
   - posts can have many likes and comments
   - a user's feed shows them their own posts and those by their friends
-- Comment
+- **Comment**
   - users can create and delete comments
   - users can reply to others (nested comments)
   - comments can have many likes
-- Notification
+- **Notification**
   - can take many forms (polymorphic)
   - notified when a reply is made to a user's comment
   - notified when a comment is made on a user's post
   - notified when a post or comment receives a like
   - notified when friendships are requested and accepted
-- Reaction
+- **Reaction**
   - can take many forms (polymorphic)
   - users can like/unlike a comment
   - users can like/unlike a post
-- Profile
+- **Profile**
   - users can add/edit their full name, age, location, and bio
-- Friendship
+- **Friendship**
   - utilized relation queries so that only 1 database record is created for each friendship
   - users can send + decline friend requests
   - posts won't show on user's feed until proposed friend accepts the friendship
-- Style
+- **Style**
   - designed with Bootstrap
   - responsive layout
-- Testing
+- **Testing**
   - Rspec/Capybara
   - 94% coverage
 
